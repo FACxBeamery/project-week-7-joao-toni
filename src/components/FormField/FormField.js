@@ -2,47 +2,45 @@ import React, { useState } from "react";
 
 import styles from "./FormField.module.css";
 
-const FormField = () => {
-	const [input, setInput] = useState(null);
-	const fieldDetails = {
-		label: "fieldName",
-		title: "this is the label",
-		type: "textarea"
-	};
+const FormField = ({ label, title, inputs, type, handleInputChange }) => {
+	// const [input, setInput] = useState(null);
 
-	const { label, title, type } = fieldDetails;
-
-	const handleInputChange = (e) => {
-		e.persist();
-		setInput(e.target.value);
-	};
+	let inputElement;
 
 	if (type === "textarea") {
-		return (
-			<div className={styles["form-field"]}>
-				<label className={styles.label} htmlFor={label}>
-					{title}*
-					{/* <input
-						type="text"
-						name={label}
-						id={label}
-						onChange={handleInputChange}
-						className={styles.input}
-                    ></input> */}
-					<textarea
-						type="text"
-						name={label}
-						id={label}
-						onChange={handleInputChange}
-						className={`${styles.input} ${styles.textarea}`}
-						maxLength="120"
-						cols="30"
-						rows="3"
-					></textarea>
-				</label>
-			</div>
+		inputElement = (
+			<textarea
+				type="text"
+				name={label}
+				id={label}
+				onChange={handleInputChange}
+				className={`${styles.input} ${styles.textarea} ${
+					inputs[label] ? "" : styles.redborder
+				}`}
+				maxLength="120"
+				cols="30"
+				rows="3"
+			></textarea>
+		);
+	} else if (type === "input") {
+		inputElement = (
+			<input
+				type="text"
+				name={label}
+				id={label}
+				onChange={handleInputChange}
+				className={`${styles.input} ${input ? "" : styles.redborder}`}
+			></input>
 		);
 	}
+	return (
+		<div className={styles["form-field"]}>
+			<label className={styles.label} htmlFor={label}>
+				{title}*{inputElement}
+			</label>
+			{input ? "" : <p>im required</p>}
+		</div>
+	);
 };
 
 export default FormField;

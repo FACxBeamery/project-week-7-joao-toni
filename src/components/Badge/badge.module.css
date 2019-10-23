@@ -1,0 +1,16 @@
+.badge {
+	font-family: var(--sans-serif);
+	font-style: italic;
+	text-align: center;
+	border-radius: 1.25rem;
+	padding: 0.5rem;
+}
+
+.inprogress {
+	background: var(--bmr-dark-40);
+}
+
+.complete {
+	background: var(--bmr-green);
+	color: var(--bmr-dark-10);
+}

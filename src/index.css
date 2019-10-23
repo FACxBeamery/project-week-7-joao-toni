@@ -12,11 +12,15 @@
 	--bmr-dark-20: #edf2f7;
 	--bmr-dark-10: #fafcff;
 	--bmr-blue: #4588dd;
+	--bmr-blue--darker: #4280d1;
 	--bmr-purple: #806ded;
+	--bmr-purple--darker: #7866e0;
 	--bmr-aqua: #50aac8;
+	--bmr-aqua--darker: #4a9fbb;
 	--bmr-green: #46a682;
 	--bmr-green--darker: #3d9675;
 	--bmr-yellow: #efb530;
+	--bmr-yellow--darker: #e0ab2d;
 
 	--serif: "Merriweather", serif;
 	--sans-serif: "Merriweather Sans", sans-serif;

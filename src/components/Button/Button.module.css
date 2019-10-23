@@ -8,6 +8,19 @@
 	color: var(--bmr-dark-10);
 	font-family: var(--sans-serif);
 	text-align: center;
+	font-size: var(--s);
+}
+
+.small {
+	width: 7.5vw;
+}
+
+.medium {
+	width: 10vw;
+}
+
+.large {
+	width: 20vw;
 }
 
 .primary {
@@ -21,14 +34,29 @@
 
 .secondary {
 	background: var(--bmr-aqua);
+	transition: background 0.3s;
+}
+
+.secondary:hover {
+	background: var(--bmr-aqua--darker);
 }
 
 .accent {
 	background: var(--bmr-purple);
+	transition: background 0.3s;
+}
+
+.accent:hover {
+	background: var(--bmr-purple--darker);
 }
 
 .outlined {
 	background: var(--bmr-dark-10);
 	color: var(--bmr-dark-100);
 	border: 0.0625rem solid var(--bmr-green);
+	transition: background 0.3s;
+}
+
+.outlined:hover {
+	background: var(--bmr-dark-20);
 }

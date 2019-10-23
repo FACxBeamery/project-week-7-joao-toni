@@ -1,0 +1,22 @@
+.form-field {
+	margin-top: var(--s);
+}
+
+.label {
+	display: flex;
+	flex-direction: column;
+	font-size: var(--m);
+}
+
+.input {
+	border: none;
+	border: 0.0625rem solid var(--bmr-dark-60);
+	border-radius: 0.25rem;
+	padding: var(--s);
+	font-size: var(--m);
+	margin-top: var(--s);
+}
+
+.textarea {
+	resize: none;
+}

@@ -1,0 +1,5 @@
+.form {
+	display: flex;
+	align-items: baseline;
+	flex-direction: column;
+}

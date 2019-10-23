@@ -4,7 +4,6 @@
 	border-radius: var(--xs);
 	border: none;
 	cursor: pointer;
-	margin: var(--xs);
 	color: var(--bmr-dark-10);
 	font-family: var(--sans-serif);
 	text-align: center;
@@ -12,15 +11,15 @@
 }
 
 .small {
-	width: 7.5vw;
+	font-size: var(--s);
 }
 
 .medium {
-	width: 10vw;
+	font-size: var(--m);
 }
 
 .large {
-	width: 20vw;
+	font-size: var(--l);
 }
 
 .primary {

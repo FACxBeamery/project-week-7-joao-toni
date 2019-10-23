@@ -1,10 +1,9 @@
 import React from "react";
 import styles from "./Button.module.css";
 
-const Button = () => {
-	const buttonText = "This is a button";
+const Button = ({ size, buttonText }) => {
 	const buttonCategory = "primary";
-	const buttonSize = "medium";
+	const buttonSize = size;
 	let button;
 	if (buttonCategory && buttonSize) {
 		button = (

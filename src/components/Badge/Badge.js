@@ -13,7 +13,7 @@ const Badge = ({ type = "inprogress" }) => {
 	// conditions
 	const typeIsInprogress = type === "inprogress";
 
-	return !typeIsInprogress ? inprogress : complete;
+	return typeIsInprogress ? inprogress : complete;
 };
 
 export default Badge;

@@ -1,10 +1,40 @@
-body {
+@import url("https://fonts.googleapis.com/css?family=Merriweather|Merriweather+Sans:300,300i,400,400i,700&display=swap");
+
+:root {
+	--bmr-dark-100: #334256;
+	--bmr-dark-90: #3d4e66;
+	--bmr-dark-80: #576880;
+	--bmr-dark-70: #718196;
+	--bmr-dark-60: #8c9aad;
+	--bmr-dark-50: #a9b5c7;
+	--bmr-dark-40: #c8d1de;
+	--bmr-dark-30: #dde3ed;
+	--bmr-dark-20: #edf2f7;
+	--bmr-dark-10: #fafcff;
+	--bmr-blue: #4588dd;
+	--bmr-purple: #806ded;
+	--bmr-aqua: #50aac8;
+	--bmr-green: #46a682;
+	--bmr-yellow: #efb530;
+
+	--serif: "Merriweather", serif;
+	--sans-serif: "Merriweather Sans", sans-serif;
+
+	--xs: 0.25rem;
+	--s: 0.5rem;
+	--m: 1rem;
+	--l: 2rem;
+	--xl: 4rem;
+	--xxl: 8rem;
+}
+
+body,
+input,
+select,
+button,
+textarea {
 	margin: 0;
-	/* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; */
+	font-family: "Merriweather", serif;
 }
 
 code {

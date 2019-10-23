@@ -1,13 +1,13 @@
 import React from "react";
-import style from "./badge.module.css";
+import styles from "./badge.module.css";
 
 const Badge = ({ type = "inprogress" }) => {
 	// badge variations
 	const inprogress = (
-		<p className={`${style.badge} ${style.inprogress}`}>in progress</p>
+		<p className={`${styles.badge} ${styles.inprogress}`}>in progress</p>
 	);
 	const complete = (
-		<p className={`${style.badge} ${style.complete}`}>complete</p>
+		<p className={`${styles.badge} ${styles.complete}`}>complete</p>
 	);
 
 	// conditions

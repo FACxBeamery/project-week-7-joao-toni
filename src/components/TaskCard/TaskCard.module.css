@@ -1,0 +1,53 @@
+h1 {
+	margin: 0 0 var(--s);
+}
+
+p {
+	font-family: var(--sans-serif);
+	margin: 0 0 var(--xs);
+}
+
+.card {
+	border-radius: var(--s);
+	background: var(--bmr-dark-10);
+
+	display: flex;
+
+	overflow: auto;
+
+	box-shadow: var(--xs) var(--xs) var(--xs) var(--bmr-dark-30);
+}
+
+.header {
+	border-bottom: var(--xxxs) solid var(--bmr-dark-80);
+}
+
+.subHeader {
+	color: var(--bmr-dark-80);
+	font-weight: 300;
+}
+
+.description {
+	flex: 1;
+	padding: var(--m) 0;
+}
+
+.buttonContainer {
+}
+
+.leftContent,
+.rightContent {
+	display: flex;
+	flex-direction: column;
+	padding: var(--m);
+}
+
+.leftContent {
+	flex: 2;
+	padding-right: var(--s);
+}
+
+.rightContent {
+	flex: 1;
+	padding-left: var(--s);
+}

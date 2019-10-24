@@ -13,10 +13,7 @@ p {
 
 	display: flex;
 
-	min-width: 40vw;
-	max-width: 60vw;
-
-	min-height: 30vh;
+	overflow: auto;
 
 	box-shadow: var(--xs) var(--xs) var(--xs) var(--bmr-dark-30);
 }

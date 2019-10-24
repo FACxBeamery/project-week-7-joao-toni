@@ -1,0 +1,26 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	padding-top: var(--s);
+}
+
+.ppFrame {
+	margin: var(--m) var(--m);
+}
+
+.ppFrame > img {
+	border-radius: 50%;
+	border: var(--xxxs) solid var(--bmr-dark-80);
+}
+
+.centre {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	text-align: center;
+}
+
+.positionText {
+	color: var(--bmr-green);
+}

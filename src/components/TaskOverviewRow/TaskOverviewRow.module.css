@@ -7,6 +7,11 @@ p {
 	margin: 0 0 var(--xs);
 }
 
+.noTasks {
+	font-family: var(--sans-serif);
+	color: var(--bmr-dark-80);
+}
+
 .cardTaskRow {
 	display: flex;
 	flex-wrap: wrap;

@@ -5,23 +5,27 @@ import Header from "../Header";
 import TaskCard from "../TaskCard";
 
 const TaskOverviewRow = ({ day, tasksData }) => {
-	console.log(day);
-	console.log(tasksData);
+	if (day === undefined || tasksData === undefined) return <p>Loading...</p>;
 
-	if (day === undefined || tasksData === undefined) return <p>nothin</p>;
+	// Componenets
+	const renderTaskCards = tasksData.map((task, i) => {
+		return (
+			<div key={i} className={styles.cardsContainer}>
+				<TaskCard {...task} />
+			</div>
+		);
+	});
+
+	const noTasks = <p className={styles.noTasks}>No tasks yet!</p>;
+
+	// Conditionals
+	const tasksDataHasItem = tasksData.length;
 
 	return (
 		<div>
 			<Header text={day} />
 			<div className={styles.cardTaskRow}>
-				{tasksData.map((task, i) => {
-					console.log(task);
-					return (
-						<div key={i} className={styles.cardsContainer}>
-							<TaskCard {...task} />
-						</div>
-					);
-				})}
+				{tasksDataHasItem ? renderTaskCards : noTasks}
 			</div>
 		</div>
 	);

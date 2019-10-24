@@ -15,14 +15,14 @@ const TaskOverviewList = ({ tasksData, isExpanded = false, setIsExpanded }) => {
 	const expandListButton = (
 		<Button
 			buttonText="Expand Tasks"
-			category="secondary"
+			category="outlined"
 			onClick={handleClick}
 		/>
 	);
 	const shrinkListButton = (
 		<Button
-			buttonText="Shrink Tasks"
-			category="secondary"
+			buttonText="Collapse Tasks"
+			category="outlined"
 			onClick={handleClick}
 		/>
 	);
@@ -36,7 +36,7 @@ const TaskOverviewList = ({ tasksData, isExpanded = false, setIsExpanded }) => {
 
 	const nonExpandedList = () => {
 		let date = new Date();
-		let curDay = getDayName(1 || date.getDay());
+		let curDay = getDayName(date.getDay());
 
 		return (
 			<TaskOverviewRow day="Today's View" tasksData={tasksData[curDay]} />

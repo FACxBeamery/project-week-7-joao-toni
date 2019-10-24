@@ -24,6 +24,7 @@
 
 .primary {
 	background: var(--bmr-green);
+	border: var(--xxxs) solid var(--bmr-green);
 	transition: background 0.3s;
 }
 
@@ -33,6 +34,7 @@
 
 .secondary {
 	background: var(--bmr-aqua);
+	border: var(--xxxs) solid var(--bmr-aqua);
 	transition: background 0.3s;
 }
 
@@ -42,6 +44,7 @@
 
 .accent {
 	background: var(--bmr-purple);
+	border: var(--xxxs) solid var(--bmr-purple);
 	transition: background 0.3s;
 }
 
@@ -52,7 +55,7 @@
 .outlined {
 	background: var(--bmr-dark-10);
 	color: var(--bmr-dark-100);
-	border: 0.0625rem solid var(--bmr-green);
+	border: var(--xxxs) solid var(--bmr-green);
 	transition: background 0.3s;
 }
 

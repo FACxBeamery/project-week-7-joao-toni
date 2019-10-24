@@ -33,9 +33,6 @@ p {
 	padding: var(--m) 0;
 }
 
-.buttonContainer {
-}
-
 .leftContent,
 .rightContent {
 	display: flex;

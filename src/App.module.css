@@ -1,3 +1,4 @@
 .app {
 	color: var(--bmr-dark-100);
+	margin: var(--xl) var(--xxl);
 }

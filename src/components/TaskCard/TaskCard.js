@@ -6,7 +6,6 @@ import Badge from "../Badge";
 import ProfileArea from "../ProfileArea";
 
 const TaskCard = ({ id, title, description, time, taskWith }) => {
-	console.log(description);
 	const Header = () => <h1>{title}</h1>;
 	const SubHeader = () => <p className={styles.subHeader}>Due by: {time}</p>;
 

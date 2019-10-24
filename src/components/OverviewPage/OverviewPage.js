@@ -48,7 +48,10 @@ const ViewPage = ({ setView }) => {
 					},
 					status: "inprogress"
 				}
-			]
+			],
+			Wednesday: [],
+			Thursday: [],
+			Friday: []
 		};
 
 		setTasksData(data);

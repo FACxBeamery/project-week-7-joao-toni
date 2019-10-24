@@ -62,10 +62,10 @@ function App() {
 	return (
 		<div className={styles.app}>
 			<div className="App">
-				{view && view === "main" ? <MainPage setView={setView} /> : ""}
+				{view === "main" ? <MainPage setView={setView} /> : ""}
 
-				{/* {view === "overview" ? <OverviewPage setView={setView} /> : ""} */}
-				<Header
+				{view === "overview" ? <OverviewPage setView={setView} /> : ""}
+				{/* <Header
 					size={"large"}
 					text={"Welcome to your first week, Paul"}
 				/>
@@ -74,7 +74,7 @@ function App() {
 					tasksData={tasksData}
 					isExpanded={isExpanded}
 					setIsExpanded={setIsExpanded}
-				/>
+				/> */}
 			</div>
 		</div>
 	);

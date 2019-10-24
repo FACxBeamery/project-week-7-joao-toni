@@ -46,7 +46,7 @@ const FormField = ({
 				{title}*{inputElement}
 			</label>
 			{errors[label] ? (
-				<p className={styles["warning"]}>im required</p>
+				<p className={styles["warning"]}>This field is required. </p>
 			) : (
 				""
 			)}

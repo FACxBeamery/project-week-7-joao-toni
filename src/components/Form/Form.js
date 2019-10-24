@@ -6,13 +6,18 @@ import styles from "./Form.module.css";
 const Form = () => {
 	const [inputs, setInputs] = useState({});
 	const [errors, setErrors] = useState({});
+	const [submitted, setSubmitted] = useState(false);
 	const handleSubmit = (e) => {
 		if (e) {
 			e.preventDefault();
+			setSubmitted(true);
 		}
 	};
 	const handleGoBack = (e) => {
 		console.log("go back!");
+
+		// set view to "main"
+		// do api post call
 	};
 
 	const handleInputChange = (e) => {
@@ -26,7 +31,22 @@ const Form = () => {
 			[e.target.name]: e.target.value ? false : true
 		}));
 	};
-	return (
+	return submitted ? (
+		<div className={styles["success-message-wrapper"]}>
+			<p className={styles["success-message"]}>
+				Event added successfully{" "}
+				<span role="img" aria-label="tick emoji">
+					✅
+				</span>
+			</p>
+			<Button
+				size={"large"}
+				buttonText={"Go back to main menu"}
+				category={"accent"}
+				onClick={handleSubmit}
+			/>
+		</div>
+	) : (
 		<form className={styles.form} onSubmit={handleSubmit}>
 			<FormField
 				label={"eventTitle"}
@@ -60,9 +80,21 @@ const Form = () => {
 				inputs={inputs}
 				errors={errors}
 			/>
-			<Button onClick={handleGoBack} />
+			<div className={styles["button-wrapper"]}>
+				<Button
+					size={"medium"}
+					category={"outlined"}
+					buttonText={"Go back"}
+					onClick={handleGoBack}
+				/>
 
-			<Button type="submit" />
+				<Button
+					type="submit"
+					size={"medium"}
+					buttonText={"Add new event"}
+					onClick={handleSubmit}
+				/>
+			</div>
 		</form>
 	);
 };

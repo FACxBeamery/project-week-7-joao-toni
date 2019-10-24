@@ -5,16 +5,6 @@ import Button from "../Button";
 import styles from "./MainPage.module.css";
 
 const MainPage = ({ setView }) => {
-	// const handleClick = (e) => {
-	// 	if (e) {
-	// 		console.log("hey");
-
-	// 		setView("overview");
-	// 	}
-	// };
-	useEffect(() => {
-		console.log("hey");
-	});
 	return (
 		<div className={styles.mainpage}>
 			<header className={styles["header-wrapper"]}>
@@ -29,7 +19,7 @@ const MainPage = ({ setView }) => {
 					size={"large"}
 					category={"primary"}
 					buttonText={"Sign in"}
-					onClick={(e) => console.log("hey")}
+					onClick={(e) => setView("overview")}
 				/>
 				<Button
 					size={"large"}

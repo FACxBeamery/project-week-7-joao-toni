@@ -5,9 +5,10 @@ import Button from "../Button";
 import Badge from "../Badge";
 import ProfileArea from "../ProfileArea";
 
-const TaskCard = () => {
-	const Header = () => <h1>Task 1</h1>;
-	const SubHeader = () => <p className={styles.subHeader}>Due by: 14:00</p>;
+const TaskCard = ({ id, title, description, time, taskWith }) => {
+	console.log(description);
+	const Header = () => <h1>{title}</h1>;
+	const SubHeader = () => <p className={styles.subHeader}>Due by: {time}</p>;
 
 	return (
 		<div className={styles.card}>
@@ -17,7 +18,7 @@ const TaskCard = () => {
 					{<SubHeader />}
 				</div>
 				<div className={styles.description}>
-					<p>Lorem ipsum ...</p>
+					<p>{description}</p>
 				</div>
 				<div className={styles.buttonContainer}>
 					<Button size={"medium"} buttonText={"Complete"} />
@@ -25,7 +26,7 @@ const TaskCard = () => {
 			</div>
 			<div className={styles.rightContent}>
 				<Badge />
-				<ProfileArea />
+				<ProfileArea {...taskWith} />
 			</div>
 		</div>
 	);

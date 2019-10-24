@@ -1,0 +1,12 @@
+.large {
+	font-size: var(--xl);
+	color: #333;
+}
+
+.medium {
+	font-size: var(--l);
+}
+
+.sans {
+	font-family: var(--sans-serif);
+}

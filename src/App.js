@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import MainPage from "./components/MainPage";
+import OverviewPage from "./components/OverviewPage";
 
 import styles from "./App.module.css";
 
@@ -10,6 +12,7 @@ import TaskOverviewList from "./components/TaskOverviewList";
 function App() {
 	const [tasksData, setTasksData] = useState({});
 	const [isExpanded, setIsExpanded] = useState(false);
+	const [view, setView] = useState("main");
 
 	useEffect(() => {
 		// TODO api implementation
@@ -58,13 +61,21 @@ function App() {
 
 	return (
 		<div className={styles.app}>
-			<Header size={"large"} text={"Welcome to your first week, Paul"} />
-			<Progress />
-			<TaskOverviewList
-				tasksData={tasksData}
-				isExpanded={isExpanded}
-				setIsExpanded={setIsExpanded}
-			/>
+			<div className="App">
+				{view && view === "main" ? <MainPage setView={setView} /> : ""}
+
+				{/* {view === "overview" ? <OverviewPage setView={setView} /> : ""} */}
+				<Header
+					size={"large"}
+					text={"Welcome to your first week, Paul"}
+				/>
+				<Progress />
+				<TaskOverviewList
+					tasksData={tasksData}
+					isExpanded={isExpanded}
+					setIsExpanded={setIsExpanded}
+				/>
+			</div>
 		</div>
 	);
 }

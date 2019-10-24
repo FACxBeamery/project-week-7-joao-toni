@@ -1,5 +1,5 @@
 .button {
-	padding: var(--xs) var(--s);
+	padding: var(--s) var(--m);
 	background: none;
 	border-radius: var(--xs);
 	border: none;

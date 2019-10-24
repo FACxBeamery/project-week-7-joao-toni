@@ -12,6 +12,7 @@ p {
 	background: var(--bmr-dark-10);
 
 	display: flex;
+	height: 100%;
 
 	overflow: auto;
 

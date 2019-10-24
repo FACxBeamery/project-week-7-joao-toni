@@ -5,6 +5,7 @@ import styles from "./Form.module.css";
 
 const Form = () => {
 	const [inputs, setInputs] = useState({});
+	const [errors, setErrors] = useState({});
 	const handleSubmit = (e) => {
 		if (e) {
 			e.preventDefault();
@@ -20,6 +21,10 @@ const Form = () => {
 			...inputs,
 			[e.target.name]: e.target.value
 		}));
+		setErrors((errors) => ({
+			...errors,
+			[e.target.name]: e.target.value ? false : true
+		}));
 	};
 	return (
 		<form className={styles.form} onSubmit={handleSubmit}>
@@ -29,24 +34,31 @@ const Form = () => {
 				type={"input"}
 				handleInputChange={handleInputChange}
 				inputs={inputs}
+				errors={errors}
 			/>
 			<FormField
 				label={"eventDescription"}
 				title={"Description"}
 				type={"textarea"}
 				handleInputChange={handleInputChange}
+				inputs={inputs}
+				errors={errors}
 			/>
 			<FormField
 				label={"eventHost"}
 				title={"Who's the host?"}
 				type={"input"}
 				handleInputChange={handleInputChange}
+				inputs={inputs}
+				errors={errors}
 			/>
 			<FormField
 				label={"eventDueDate"}
 				title={"Due date"}
 				type={"input"}
 				handleInputChange={handleInputChange}
+				inputs={inputs}
+				errors={errors}
 			/>
 			<Button onClick={handleGoBack} />
 

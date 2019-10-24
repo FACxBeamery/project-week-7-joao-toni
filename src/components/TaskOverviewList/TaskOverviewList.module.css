@@ -1,0 +1,21 @@
+h1 {
+	margin: 0 0 var(--s);
+}
+
+p {
+	font-family: var(--sans-serif);
+	margin: 0 0 var(--xs);
+}
+
+.tasksOverviewSection {
+	padding: var(--l);
+
+	transition: flex-grow 2s ease-in-out;
+	display: flex;
+	flex-direction: column;
+}
+
+.listButtonContainer {
+	padding: 10px;
+	margin: auto;
+}

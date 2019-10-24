@@ -1,5 +1,5 @@
 .form-field {
-	margin-top: var(--s);
+	margin-top: var(--l);
 }
 
 .label {
@@ -19,4 +19,15 @@
 
 .textarea {
 	resize: none;
+}
+
+.redborder {
+	border: 0.0625rem solid indianred;
+}
+
+.warning {
+	color: indianred;
+	font-size: var(--s);
+	margin: 0;
+	margin-top: 0.25rem;
 }

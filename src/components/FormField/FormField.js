@@ -2,9 +2,14 @@ import React, { useState } from "react";
 
 import styles from "./FormField.module.css";
 
-const FormField = ({ label, title, inputs, type, handleInputChange }) => {
-	// const [input, setInput] = useState(null);
-
+const FormField = ({
+	label,
+	title,
+	inputs,
+	errors,
+	type,
+	handleInputChange
+}) => {
 	let inputElement;
 
 	if (type === "textarea") {
@@ -15,7 +20,7 @@ const FormField = ({ label, title, inputs, type, handleInputChange }) => {
 				id={label}
 				onChange={handleInputChange}
 				className={`${styles.input} ${styles.textarea} ${
-					inputs[label] ? "" : styles.redborder
+					errors[label] ? styles.redborder : ""
 				}`}
 				maxLength="120"
 				cols="30"
@@ -29,7 +34,9 @@ const FormField = ({ label, title, inputs, type, handleInputChange }) => {
 				name={label}
 				id={label}
 				onChange={handleInputChange}
-				className={`${styles.input} ${input ? "" : styles.redborder}`}
+				className={`${styles.input} ${
+					errors[label] ? styles.redborder : ""
+				}`}
 			></input>
 		);
 	}
@@ -38,7 +45,11 @@ const FormField = ({ label, title, inputs, type, handleInputChange }) => {
 			<label className={styles.label} htmlFor={label}>
 				{title}*{inputElement}
 			</label>
-			{input ? "" : <p>im required</p>}
+			{errors[label] ? (
+				<p className={styles["warning"]}>im required</p>
+			) : (
+				""
+			)}
 		</div>
 	);
 };

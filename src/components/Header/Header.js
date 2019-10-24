@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Header.module.css";
 
-const Header = ({ size, text, sans }) => {
+const Header = ({ size = "medium", text, sans = false }) => {
 	let header;
 
 	if (size === "large") {

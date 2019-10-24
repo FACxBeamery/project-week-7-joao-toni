@@ -3,6 +3,7 @@ import styles from "./TaskCard.module.css";
 
 import Button from "../Button";
 import Badge from "../Badge";
+import ProfileArea from "../ProfileArea";
 
 const TaskCard = () => {
 	const Header = () => <h1>Task 1</h1>;
@@ -24,6 +25,7 @@ const TaskCard = () => {
 			</div>
 			<div className={styles.rightContent}>
 				<Badge />
+				<ProfileArea />
 			</div>
 		</div>
 	);

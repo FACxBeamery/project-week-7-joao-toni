@@ -13,12 +13,6 @@ const Form = () => {
 			setSubmitted(true);
 		}
 	};
-	const handleGoBack = (e) => {
-		console.log("go back!");
-
-		// set view to "main"
-		// do api post call
-	};
 
 	const handleInputChange = (e) => {
 		e.persist();
@@ -81,13 +75,6 @@ const Form = () => {
 				errors={errors}
 			/>
 			<div className={styles["button-wrapper"]}>
-				<Button
-					size={"medium"}
-					category={"outlined"}
-					buttonText={"Go back"}
-					onClick={handleGoBack}
-				/>
-
 				<Button
 					type="submit"
 					size={"medium"}

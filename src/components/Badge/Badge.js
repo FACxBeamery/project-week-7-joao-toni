@@ -2,18 +2,17 @@ import React from "react";
 import styles from "./badge.module.css";
 
 const Badge = ({ type = "inprogress" }) => {
-	// badge variations
-	const inprogress = (
-		<p className={`${styles.badge} ${styles.inprogress}`}>in progress</p>
-	);
-	const complete = (
-		<p className={`${styles.badge} ${styles.complete}`}>complete</p>
-	);
-
-	// conditions
 	const typeIsInprogress = type === "inprogress";
 
-	return typeIsInprogress ? inprogress : complete;
+	return (
+		<p
+			className={`${styles.badge} ${
+				typeIsInprogress ? styles.inprogress : styles.complete
+			} `}
+		>
+			{typeIsInprogress ? "in progress" : "complete"}
+		</p>
+	);
 };
 
 export default Badge;

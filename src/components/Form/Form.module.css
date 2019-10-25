@@ -6,13 +6,8 @@
 }
 
 .button-wrapper {
-	display: flex;
-	justify-content: space-between;
-	margin-top: var(--l);
-}
-
-.button-wrapper > button:last-of-type {
-	margin-left: var(--xl);
+	align-self: flex-end;
+	margin-top: var(--m);
 }
 
 .success-message-wrapper {

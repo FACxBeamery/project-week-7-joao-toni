@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import Header from "../Header";
 import Button from "../Button";
 
-import styles from "./MainPage.module.css";
+import styles from "./LandingPage.module.css";
 
-const MainPage = ({ setView }) => {
+const LandingPage = ({ setView }) => {
 	return (
-		<div className={styles.mainpage}>
+		<div className={styles.landingpage}>
 			<header className={styles["header-wrapper"]}>
 				<Header size={"large"} text={"Hi Paul"} />
 				<Header
@@ -32,4 +32,4 @@ const MainPage = ({ setView }) => {
 	);
 };
 
-export default MainPage;
+export default LandingPage;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import MainPage from "./components/MainPage";
+import LandingPage from "./components/LandingPage";
 import OverviewPage from "./components/OverviewPage";
 import AdminPage from "./components/AdminPage";
 
@@ -10,7 +10,7 @@ const App = () => {
 	return (
 		<div className={styles.app}>
 			<div className="App">
-				{view === "main" ? <MainPage setView={setView} /> : ""}
+				{view === "main" ? <LandingPage setView={setView} /> : ""}
 				{view === "overview" ? <OverviewPage setView={setView} /> : ""}
 				{view === "admin" ? <AdminPage setView={setView} /> : ""}
 			</div>

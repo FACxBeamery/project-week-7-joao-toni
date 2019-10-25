@@ -18,7 +18,6 @@ const UpNext = () => {
 			<img
 				src="https://assets-ouch.icons8.com/preview/139/4ee85576-55f0-4025-8f6d-98f9a33938e8.png"
 				alt=""
-				srcset=""
 				className={styles.img}
 			/>
 		</div>

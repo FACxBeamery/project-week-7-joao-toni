@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import Header from "../Header";
 import Progress from "../Progress";
+import UpNext from "../UpNext";
 
 import TaskOverviewList from "../TaskOverviewList";
 
@@ -60,6 +61,7 @@ const ViewPage = ({ setView }) => {
 	return (
 		<>
 			<Header size={"large"} text={"Welcome to your first week, Paul"} />
+			<UpNext />
 			<Progress tasksData={tasksData} />
 			<TaskOverviewList
 				tasksData={tasksData}

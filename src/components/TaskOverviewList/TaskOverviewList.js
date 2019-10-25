@@ -37,7 +37,7 @@ const TaskOverviewList = ({ tasksData, isExpanded = false, setIsExpanded }) => {
 
 		return allDays.map((day, index) => (
 			<>
-				<Header text={day} key={index} />
+				<Header text={day} key={index} highlighted={true} />
 				<TaskOverviewRow
 					key={day}
 					day={day}

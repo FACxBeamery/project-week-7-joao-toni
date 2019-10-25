@@ -5,15 +5,15 @@ const Header = ({
 	size = "medium",
 	text,
 	sans = false,
-	highlighted = false
+	highlighted = "no"
 }) => {
 	let header;
 
 	if (size === "large") {
 		header = (
 			<h1
-				className={`${styles.header} ${styles.large} ${
-					highlighted ? styles[text] : ""
+				className={`${styles.large} ${
+					highlighted === "yes" ? styles[text.toLowerCase()] : ""
 				}`}
 			>
 				{text}
@@ -22,9 +22,9 @@ const Header = ({
 	} else if (size === "medium") {
 		header = (
 			<h2
-				className={`${styles.header} ${styles.medium} ${
-					sans ? styles.sans : ""
-				} ${highlighted ? styles[text] : ""}`}
+				className={`${styles.medium} ${sans ? styles.sans : ""} ${
+					highlighted === "yes" ? styles[text.toLowerCase()] : ""
+				}`}
 			>
 				{text}
 			</h2>

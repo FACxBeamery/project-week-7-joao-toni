@@ -30,11 +30,17 @@ const TaskCard = ({ id, title, description, time, taskWith, progress }) => {
 	const handleClick = typeIsProg ? typeProgHandleClick : typeCompHandleClick;
 
 	const Header = () => <h1>{title}</h1>;
-	const SubHeader = () => <p className={styles.subHeader}>Due by: {time}</p>;
+	const SubHeader = () => (
+		<p className={styles["sub-header"]}>Due by: {time}</p>
+	);
 
 	return (
 		<div className={styles.card}>
-			<div className={styles.leftContent}>
+			<div
+				className={`${styles["content-wrapper"]} ${
+					styles["content-wrapper__left"]
+				} `}
+			>
 				<div className={styles.header}>
 					{<Header />}
 					{<SubHeader />}
@@ -42,7 +48,7 @@ const TaskCard = ({ id, title, description, time, taskWith, progress }) => {
 				<div className={styles.description}>
 					<p>{description}</p>
 				</div>
-				<div className={styles.buttonContainer}>
+				<div className={styles["button-wrapper"]}>
 					<Button
 						size={"medium"}
 						buttonText={btnText}
@@ -51,7 +57,11 @@ const TaskCard = ({ id, title, description, time, taskWith, progress }) => {
 					/>
 				</div>
 			</div>
-			<div className={styles.rightContent}>
+			<div
+				className={`${styles["content-wrapper"]} ${
+					styles["content-wrapper__right"]
+				}`}
+			>
 				<Badge type={type} />
 				<ProfileArea {...taskWith} />
 			</div>

@@ -1,26 +1,21 @@
 .container {
-	display: flex;
-	flex-direction: column;
-	padding-top: var(--s);
+	text-align: center;
+	align-self: flex-end;
 }
 
-.ppFrame {
-	margin: var(--m) var(--m);
+.container > p {
+	font-size: var(--s);
 }
 
-.ppFrame > img {
+.frame > img {
 	border-radius: 50%;
 	border: var(--xxxs) solid var(--bmr-dark-80);
 }
 
 .centre {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	width: 50%;
 	text-align: center;
 }
 
-.positionText {
+.title-position--green {
 	color: var(--bmr-green);
 }

@@ -3,6 +3,7 @@ import styles from "./TaskOverviewList.module.css";
 
 import TaskOverviewRow from "../TaskOverviewRow";
 import Button from "../Button";
+import Header from "../Header";
 import { getDayName } from "../../utils/dateHelpers";
 
 const TaskOverviewList = ({ tasksData, isExpanded = false, setIsExpanded }) => {
@@ -29,8 +30,21 @@ const TaskOverviewList = ({ tasksData, isExpanded = false, setIsExpanded }) => {
 
 	const expandedList = () => {
 		let allDays = Object.keys(tasksData);
-		return allDays.map((day) => (
-			<TaskOverviewRow key={day} day={day} tasksData={tasksData[day]} />
+		console.log("alldays:", allDays);
+		console.log("tasks data", tasksData);
+
+		allDays.map((day) => console.log(tasksData[day]));
+
+		return allDays.map((day, index) => (
+			<>
+				<Header text={day} key={index} />
+				<TaskOverviewRow
+					key={day}
+					day={day}
+					tasksData={tasksData[day]}
+					className={styles["row-wrapper"]}
+				/>
+			</>
 		));
 	};
 
@@ -39,7 +53,10 @@ const TaskOverviewList = ({ tasksData, isExpanded = false, setIsExpanded }) => {
 		let curDay = getDayName(date.getDay());
 
 		return (
-			<TaskOverviewRow day="Today's View" tasksData={tasksData[curDay]} />
+			<TaskOverviewRow
+				day={"Today's View"}
+				tasksData={tasksData[curDay]}
+			/>
 		);
 	};
 
@@ -48,9 +65,9 @@ const TaskOverviewList = ({ tasksData, isExpanded = false, setIsExpanded }) => {
 	const matchListButton = isExpanded ? shrinkListButton : expandListButton;
 
 	return (
-		<section className={styles.tasksOverviewSection}>
+		<section className={styles["tasks-section"]}>
 			{tasksListType}
-			<div className={styles.listButtonContainer}>{matchListButton}</div>
+			<div className={styles["button-wrapper"]}>{matchListButton}</div>
 		</section>
 	);
 };

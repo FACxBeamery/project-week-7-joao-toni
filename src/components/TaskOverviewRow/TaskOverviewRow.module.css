@@ -1,23 +1,15 @@
-h1 {
-	margin: 0 0 var(--s);
-}
-
-p {
-	font-family: var(--sans-serif);
-	margin: 0 0 var(--xs);
-}
-
-.noTasks {
+.no-tasks {
 	font-family: var(--sans-serif);
 	color: var(--bmr-dark-80);
 }
 
-.cardTaskRow {
+.card-wrapper {
 	display: flex;
-	flex-wrap: wrap;
+	flex: 0 0 100%;
+	margin: 10px;
 }
 
-.cardsContainer {
-	flex-basis: 48%;
-	padding: 0 var(--m) var(--m) 0;
+.row-wrapper {
+	display: flex;
+	flex-wrap: wrap;
 }

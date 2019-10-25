@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./TaskOverviewList.module.css";
 
-import TaskOverviewRow from "../TaskOverviewRow";
+import TaskOverviewRow from "./TaskOverviewRow";
 import Button from "../Button";
 import Header from "../Header";
 import { getDayName } from "../../utils/dateHelpers";
@@ -30,14 +30,10 @@ const TaskOverviewList = ({ tasksData, isExpanded = false, setIsExpanded }) => {
 
 	const expandedList = () => {
 		let allDays = Object.keys(tasksData);
-		console.log("alldays:", allDays);
-		console.log("tasks data", tasksData);
-
-		allDays.map((day) => console.log(tasksData[day]));
 
 		return allDays.map((day, index) => (
 			<>
-				<Header text={day} key={index} highlighted={true} />
+				<Header text={day} key={index} highlighted={"yes"} />
 				<TaskOverviewRow
 					key={day}
 					day={day}
@@ -53,10 +49,13 @@ const TaskOverviewList = ({ tasksData, isExpanded = false, setIsExpanded }) => {
 		let curDay = getDayName(date.getDay());
 
 		return (
-			<TaskOverviewRow
-				day={"Today's View"}
-				tasksData={tasksData[curDay]}
-			/>
+			<>
+				<Header text={"Today's Overview"} />
+				<TaskOverviewRow
+					day={"Today's View"}
+					tasksData={tasksData[curDay]}
+				/>
+			</>
 		);
 	};
 

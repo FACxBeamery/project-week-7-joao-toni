@@ -25,6 +25,7 @@ const MainPage = ({ setView }) => {
 					size={"large"}
 					category={"outlined"}
 					buttonText={"Not Paul? Sign in as admin "}
+					onClick={(e) => setView("admin")}
 				/>
 			</div>
 		</div>

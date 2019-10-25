@@ -5,7 +5,7 @@ import AdminPage from "./components/AdminPage";
 
 import styles from "./App.module.css";
 
-function App() {
+const App = () => {
 	const [view, setView] = useState("main");
 	return (
 		<div className={styles.app}>
@@ -16,6 +16,6 @@ function App() {
 			</div>
 		</div>
 	);
-}
+};
 
 export default App;

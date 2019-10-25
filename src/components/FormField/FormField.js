@@ -8,9 +8,22 @@ const FormField = ({
 	inputs,
 	errors,
 	type,
-	handleInputChange
+	setInputs,
+	setErrors
 }) => {
 	let inputElement;
+
+	const handleInputChange = (e) => {
+		e.persist();
+		setInputs((inputs) => ({
+			...inputs,
+			[e.target.name]: e.target.value
+		}));
+		setErrors((errors) => ({
+			...errors,
+			[e.target.name]: e.target.value ? false : true
+		}));
+	};
 
 	if (type === "textarea") {
 		inputElement = (
@@ -25,6 +38,7 @@ const FormField = ({
 				maxLength="120"
 				cols="30"
 				rows="3"
+				value={inputs[label] || ""}
 			></textarea>
 		);
 	} else if (type === "input") {
@@ -37,6 +51,7 @@ const FormField = ({
 				className={`${styles.input} ${
 					errors[label] ? styles.redborder : ""
 				}`}
+				value={inputs[label] || ""}
 			></input>
 		);
 	}

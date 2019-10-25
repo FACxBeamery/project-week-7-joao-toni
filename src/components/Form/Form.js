@@ -14,17 +14,6 @@ const Form = () => {
 		}
 	};
 
-	const handleInputChange = (e) => {
-		e.persist();
-		setInputs((inputs) => ({
-			...inputs,
-			[e.target.name]: e.target.value
-		}));
-		setErrors((errors) => ({
-			...errors,
-			[e.target.name]: e.target.value ? false : true
-		}));
-	};
 	return submitted ? (
 		<div className={styles["success-message-wrapper"]}>
 			<p className={styles["success-message"]}>
@@ -46,33 +35,37 @@ const Form = () => {
 				label={"eventTitle"}
 				title={"Title of the event"}
 				type={"input"}
-				handleInputChange={handleInputChange}
 				inputs={inputs}
 				errors={errors}
+				setInputs={setInputs}
+				setErrors={setErrors}
 			/>
 			<FormField
 				label={"eventDescription"}
 				title={"Description"}
 				type={"textarea"}
-				handleInputChange={handleInputChange}
 				inputs={inputs}
 				errors={errors}
+				setInputs={setInputs}
+				setErrors={setErrors}
 			/>
 			<FormField
 				label={"eventHost"}
 				title={"Who's the host?"}
 				type={"input"}
-				handleInputChange={handleInputChange}
 				inputs={inputs}
 				errors={errors}
+				setInputs={setInputs}
+				setErrors={setErrors}
 			/>
 			<FormField
 				label={"eventDueDate"}
 				title={"Due date"}
 				type={"input"}
-				handleInputChange={handleInputChange}
 				inputs={inputs}
 				errors={errors}
+				setInputs={setInputs}
+				setErrors={setErrors}
 			/>
 			<div className={styles["button-wrapper"]}>
 				<Button

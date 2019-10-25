@@ -18,7 +18,7 @@ const ViewPage = ({ setView }) => {
 					id: 1,
 					title: "Intro Task",
 					description: "Meet the team!",
-					time: "12:00:00",
+					time: "12:00",
 					taskWith: {
 						name: "Yob Yan",
 						position: "Grad Manager"
@@ -29,7 +29,7 @@ const ViewPage = ({ setView }) => {
 					id: 2,
 					title: "Meet Your Laptop!",
 					description: "Unbox yo goodies",
-					time: "17:00:00",
+					time: "17:00",
 					taskWith: {
 						name: "Grads",
 						position: "Grad Team"
@@ -42,7 +42,7 @@ const ViewPage = ({ setView }) => {
 					id: 3,
 					title: "Intro Task",
 					description: "Meet the team!",
-					time: "12:00:00",
+					time: "12:00",
 					taskWith: {
 						name: "Yob Yan",
 						position: "Grad Manager"

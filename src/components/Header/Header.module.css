@@ -10,3 +10,20 @@
 .sans {
 	font-family: var(--sans-serif);
 }
+
+.monday {
+	background: lightpink;
+}
+
+.tuesday {
+	background: lightgreen;
+}
+.wednesday {
+	background: lightsalmon;
+}
+.thursday {
+	background: lightblue;
+}
+.friday {
+	background: lightgoldenrodyellow;
+}

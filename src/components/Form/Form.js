@@ -34,7 +34,6 @@ const Form = () => {
 			<FormField
 				label={"eventTitle"}
 				title={"Title of the event"}
-				type={"input"}
 				inputs={inputs}
 				errors={errors}
 				setInputs={setInputs}
@@ -52,7 +51,6 @@ const Form = () => {
 			<FormField
 				label={"eventHost"}
 				title={"Who's the host?"}
-				type={"input"}
 				inputs={inputs}
 				errors={errors}
 				setInputs={setInputs}
@@ -61,7 +59,6 @@ const Form = () => {
 			<FormField
 				label={"eventDueDate"}
 				title={"Due date"}
-				type={"input"}
 				inputs={inputs}
 				errors={errors}
 				setInputs={setInputs}

@@ -3,7 +3,7 @@ import styles from "./ProfileArea.module.css";
 
 const ProfileArea = ({ ppSrc, name, position }) => {
 	const profilePicture = (
-		<span className={`${styles.ppFrame} ${styles.centre}`}>
+		<span className={`${styles.frame} ${styles.centre}`}>
 			<img
 				className={styles.centre}
 				src={
@@ -15,16 +15,12 @@ const ProfileArea = ({ ppSrc, name, position }) => {
 		</span>
 	);
 
-	const nameElement = (
-		<span className={styles.centre}>
-			<p>{name || "John Smith"}</p>
-		</span>
-	);
+	const nameElement = <p>{name || "John Smith"}</p>;
 
 	const positionElement = (
-		<span className={styles.centre}>
-			<p className={styles.positionText}>{position || "Manager"}</p>
-		</span>
+		<p className={styles["title-position--green"]}>
+			{position || "Manager"}
+		</p>
 	);
 
 	return (

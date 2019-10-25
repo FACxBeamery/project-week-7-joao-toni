@@ -1,51 +1,43 @@
-h1 {
-	margin: 0 0 var(--s);
-}
-
-p {
-	font-family: var(--sans-serif);
-	margin: 0 0 var(--xs);
-}
-
 .card {
 	border-radius: var(--s);
 	background: var(--bmr-dark-10);
-
 	display: flex;
-	height: 100%;
 
-	overflow: auto;
 	border: 0.0625rem solid var(--bmr-dark-40);
 	box-shadow: var(--xs) var(--xs) var(--xs) var(--bmr-dark-30);
+
+	width: 40%;
+	padding: 1rem;
+	margin: 0rem 1rem 1rem 0rem;
 }
 
 .header {
 	border-bottom: var(--xxxs) solid var(--bmr-dark-80);
 }
 
-.subHeader {
+.sub-header {
 	color: var(--bmr-dark-80);
 	font-weight: 300;
+	font-size: var(--s);
 }
 
 .description {
 	flex: 1;
-	padding: var(--m) 0;
+	font-size: var(--s);
 }
 
-.leftContent,
-.rightContent {
+.content-wrapper {
 	display: flex;
 	flex-direction: column;
-	padding: var(--m);
+	justify-content: space-between;
 }
 
-.leftContent {
+.content-wrapper__left {
 	flex: 2;
-	padding-right: var(--s);
 }
 
-.rightContent {
+.content-wrapper__right {
 	flex: 1;
-	padding-left: var(--s);
+	display: flex;
+	justify-content: space-between;
 }

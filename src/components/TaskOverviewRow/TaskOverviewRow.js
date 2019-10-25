@@ -9,24 +9,24 @@ const TaskOverviewRow = ({ day, tasksData }) => {
 
 	// Componenets
 	const renderTaskCards = tasksData.map((task, i) => {
+		console.log("task:", task);
+
 		return (
-			<div key={i} className={styles.cardsContainer}>
-				<TaskCard {...task} />
-			</div>
+			<TaskCard key={i} className={styles["card-wrapper"]} {...task} />
 		);
 	});
 
-	const noTasks = <p className={styles.noTasks}>No tasks yet!</p>;
+	const noTasks = <p className={styles["no-tasks"]}>No tasks yet!</p>;
 
 	// Conditionals
 	const tasksDataHasItem = tasksData.length;
 
 	return (
-		<div>
-			<Header text={day} />
-			<div className={styles.cardTaskRow}>
-				{tasksDataHasItem ? renderTaskCards : noTasks}
-			</div>
+		<div className={styles["row-wrapper"]}>
+			{/* <Header text={day} /> */}
+			{/* <div className={styles.cardTaskRow}> */}
+			{tasksDataHasItem ? renderTaskCards : noTasks}
+			{/* </div> */}
 		</div>
 	);
 };

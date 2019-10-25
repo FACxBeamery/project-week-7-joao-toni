@@ -22,7 +22,7 @@ const ViewPage = ({ setView }) => {
 						name: "Yob Yan",
 						position: "Grad Manager"
 					},
-					status: "inprogress"
+					progress: "inprogress"
 				},
 				{
 					id: 2,
@@ -33,7 +33,7 @@ const ViewPage = ({ setView }) => {
 						name: "Grads",
 						position: "Grad Team"
 					},
-					status: "inprogress"
+					progress: "inprogress"
 				}
 			],
 			Tuesday: [
@@ -46,7 +46,7 @@ const ViewPage = ({ setView }) => {
 						name: "Yob Yan",
 						position: "Grad Manager"
 					},
-					status: "inprogress"
+					progress: "complete"
 				}
 			],
 			Wednesday: [],
@@ -60,7 +60,7 @@ const ViewPage = ({ setView }) => {
 	return (
 		<>
 			<Header size={"large"} text={"Welcome to your first week, Paul"} />
-			<Progress />
+			<Progress tasksData={tasksData} />
 			<TaskOverviewList
 				tasksData={tasksData}
 				isExpanded={isExpanded}

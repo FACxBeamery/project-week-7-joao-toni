@@ -5,13 +5,19 @@ import Button from "../Button";
 import Badge from "../Badge";
 import ProfileArea from "../ProfileArea";
 
-const TaskCard = ({ id, title, description, time, taskWith }) => {
+const TaskCard = ({ id, title, description, time, taskWith, progress }) => {
 	// Consts
 	const [typeProg, typeComp] = ["inprogress", "complete"];
 
 	const [type, setType] = useState(typeProg);
 
+	useEffect(() => {
+		if (progress === typeProg || progress === typeComp) setType(progress);
+		else setType(typeProg);
+	}, [progress, setType, typeProg, typeComp]);
+
 	// handleClicks
+	// TODO update with mongodb call to update data
 	const typeProgHandleClick = () => setType(typeComp);
 	const typeCompHandleClick = () => setType(typeProg);
 

@@ -1,5 +1,5 @@
 const getDayName = (id) => {
-	var weekday = new Array(7);
+	const weekday = new Array(7);
 	weekday[0] = "Sunday";
 	weekday[1] = "Monday";
 	weekday[2] = "Tuesday";

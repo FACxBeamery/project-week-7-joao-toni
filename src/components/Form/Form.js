@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import FormField from "../FormField/FormField";
+import FormField from "./FormField";
 import Button from "../Button/Button";
 import styles from "./Form.module.css";
 

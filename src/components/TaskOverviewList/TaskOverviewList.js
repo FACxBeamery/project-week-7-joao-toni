@@ -4,7 +4,19 @@ import styles from "./TaskOverviewList.module.css";
 import TaskOverviewRow from "./TaskOverviewRow";
 import Button from "../Button";
 import Header from "../Header";
-import { getDayName } from "../../utils/dateHelpers";
+
+export const getDayName = (id) => {
+	const weekday = new Array(7);
+	weekday[0] = "Sunday";
+	weekday[1] = "Monday";
+	weekday[2] = "Tuesday";
+	weekday[3] = "Wednesday";
+	weekday[4] = "Thursday";
+	weekday[5] = "Friday";
+	weekday[6] = "Saturday";
+
+	return weekday[id];
+};
 
 const TaskOverviewList = ({ tasksData, isExpanded = false, setIsExpanded }) => {
 	//Functionality
@@ -32,15 +44,19 @@ const TaskOverviewList = ({ tasksData, isExpanded = false, setIsExpanded }) => {
 		let allDays = Object.keys(tasksData);
 
 		return allDays.map((day, index) => (
-			<>
-				<Header text={day} key={index} highlighted={"yes"} />
+			<div key={`${day}_${index}`}>
+				<Header
+					text={day}
+					key={`${day}_${index}`}
+					highlighted={"yes"}
+				/>
 				<TaskOverviewRow
 					key={day}
 					day={day}
 					tasksData={tasksData[day]}
 					className={styles["row-wrapper"]}
 				/>
-			</>
+			</div>
 		));
 	};
 

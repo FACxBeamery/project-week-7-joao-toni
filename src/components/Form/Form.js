@@ -63,6 +63,8 @@ const Form = () => {
 				errors={errors}
 				setInputs={setInputs}
 				setErrors={setErrors}
+				regex={/^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/}
+				errorMessage="This field is required and needs to be on the following format HH:MM, e.g. 12:00, 01:00, etc"
 			/>
 			<div className={styles["button-wrapper"]}>
 				<Button

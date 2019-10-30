@@ -29,6 +29,10 @@
 	border: 0.0625rem solid indianred;
 }
 
+.greenborder {
+	border: 0.0625rem solid rgb(23, 172, 115);
+}
+
 .warning {
 	color: indianred;
 	font-size: var(--m);

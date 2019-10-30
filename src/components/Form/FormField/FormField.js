@@ -10,8 +10,8 @@ const TextArea = ({ label, handleInputChange, errors, inputs }) => {
 			id={label}
 			onChange={handleInputChange}
 			className={`${styles.input} ${styles.textarea} ${
-				errors[label] ? styles.redborder : ""
-			}`}
+				errors[label] === true ? styles.redborder : ""
+			} ${errors[label] === false ? styles.greenborder : ""} `}
 			maxLength="120"
 			cols="30"
 			rows="3"
@@ -28,8 +28,8 @@ const Input = ({ label, handleInputChange, errors, inputs }) => {
 			id={label}
 			onChange={handleInputChange}
 			className={`${styles.input} ${
-				errors[label] ? styles.redborder : ""
-			}`}
+				errors[label] === true ? styles.redborder : ""
+			} ${errors[label] === false ? styles.greenborder : ""} `}
 			value={inputs[label] || ""}
 		></input>
 	);
@@ -42,7 +42,9 @@ const FormField = ({
 	errors,
 	type = "input",
 	setInputs,
-	setErrors
+	setErrors,
+	regex = "",
+	errorMessage = "This field is required. "
 }) => {
 	const handleInputChange = (e) => {
 		e.persist();
@@ -50,10 +52,15 @@ const FormField = ({
 			...inputs,
 			[e.target.name]: e.target.value
 		}));
-		setErrors((errors) => ({
-			...errors,
-			[e.target.name]: e.target.value ? false : true
-		}));
+		regex
+			? setErrors((errors) => ({
+					...errors,
+					[e.target.name]: regex.test(e.target.value) ? false : true
+			  }))
+			: setErrors((errors) => ({
+					...errors,
+					[e.target.name]: e.target.value ? false : true
+			  }));
 	};
 
 	return (
@@ -77,7 +84,7 @@ const FormField = ({
 				)}
 			</label>
 			{errors[label] ? (
-				<p className={styles["warning"]}>This field is required. </p>
+				<p className={styles["warning"]}>{errorMessage} </p>
 			) : (
 				<p className={styles["warning"]}> &nbsp;</p>
 			)}

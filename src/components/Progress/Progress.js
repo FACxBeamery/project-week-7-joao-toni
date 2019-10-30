@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../Header";
 import styles from "./Progress.module.css";
-import ProgressWheel from "../ProgressWheel";
+import ProgressWheel from "./ProgressWheel";
 
 const Progress = ({ tasksData }) => {
 	const [totalProg, setTotalProg] = useState(0);

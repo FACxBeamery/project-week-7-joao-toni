@@ -23,10 +23,9 @@ const TaskCard = ({ id, title, description, time, taskWith, progress }) => {
 
 	// Conditionals
 	const typeIsProg = type === typeProg;
-	const typeIsComp = type === typeComp;
 
 	const btnText = typeIsProg ? "Complete" : "Re-open task";
-	const btnCategory = typeIsProg ? "primary" : "outlined";
+	const btnCategory = typeIsProg ? "primary" : "accent";
 	const handleClick = typeIsProg ? typeProgHandleClick : typeCompHandleClick;
 
 	const Header = () => <h1>{title}</h1>;

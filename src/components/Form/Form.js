@@ -1,16 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FormField from "./FormField";
 import Button from "../Button/Button";
 import styles from "./Form.module.css";
 
+const areAllObjPropsFalse = (obj) =>
+	Object.values(obj).every((v) => v === false);
+
 const Form = () => {
 	const [inputs, setInputs] = useState({});
-	const [errors, setErrors] = useState({});
+	const [errors, setErrors] = useState({
+		eventDescription: undefined,
+		eventDueDate: undefined,
+		eventHost: undefined,
+		eventTitle: undefined
+	});
+	const [validForm, setValidForm] = useState(false);
 	const [submitted, setSubmitted] = useState(false);
 	const handleSubmit = (e) => {
 		if (e) {
 			e.preventDefault();
-			setSubmitted(true);
+			let doesNotHaveErrors = areAllObjPropsFalse(errors);
+			if (doesNotHaveErrors) {
+				setSubmitted(true);
+			}
+		}
+	};
+
+	const checkIfThereAreErrors = () => {
+		console.log("im here.:", errors);
+
+		//
+		// Object.values(errors).every((key) => console.log(key));
+		if (areAllObjPropsFalse(errors)) {
+			console.log("IM HEREEEEEE");
+
+			setValidForm(true);
 		}
 	};
 
@@ -38,6 +62,7 @@ const Form = () => {
 				errors={errors}
 				setInputs={setInputs}
 				setErrors={setErrors}
+				checkIfThereAreErrors={checkIfThereAreErrors}
 			/>
 			<FormField
 				label={"eventDescription"}
@@ -47,6 +72,7 @@ const Form = () => {
 				errors={errors}
 				setInputs={setInputs}
 				setErrors={setErrors}
+				checkIfThereAreErrors={checkIfThereAreErrors}
 			/>
 			<FormField
 				label={"eventHost"}
@@ -55,6 +81,7 @@ const Form = () => {
 				errors={errors}
 				setInputs={setInputs}
 				setErrors={setErrors}
+				checkIfThereAreErrors={checkIfThereAreErrors}
 			/>
 			<FormField
 				label={"eventDueDate"}
@@ -63,7 +90,8 @@ const Form = () => {
 				errors={errors}
 				setInputs={setInputs}
 				setErrors={setErrors}
-				regex={/^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/}
+				checkIfThereAreErrors={checkIfThereAreErrors}
+				regex={"/^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/"}
 				errorMessage="This field is required and needs to be on the following format HH:MM, e.g. 12:00, 01:00, etc"
 			/>
 			<div className={styles["button-wrapper"]}>
@@ -71,6 +99,7 @@ const Form = () => {
 					type="submit"
 					size={"medium"}
 					buttonText={"Add new event"}
+					isActive={validForm}
 					onClick={handleSubmit}
 				/>
 			</div>

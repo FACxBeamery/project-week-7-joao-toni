@@ -62,3 +62,8 @@
 .outlined:hover {
 	background: var(--bmr-dark-20);
 }
+
+.inactive {
+	opacity: 0.5;
+	cursor: not-allowed;
+}

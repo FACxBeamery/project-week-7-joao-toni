@@ -47,6 +47,12 @@ const FormField = ({
 	errorMessage = "This field is required. ",
 	checkIfThereAreErrors
 }) => {
+	// console.log(regex);
+
+	// const validationRegex = new RegExp(regex);
+
+	// console.log(validationRegex);
+
 	const handleInputChange = (e) => {
 		e.persist();
 		setInputs((inputs) => ({
@@ -57,7 +63,9 @@ const FormField = ({
 			? setErrors((errors) => ({
 					...errors,
 					[e.target.name]:
-						new RegExp(regex).test(e.target.value) && e.target.value
+						/^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/.test(
+							e.target.value
+						) && e.target.value
 							? false
 							: true
 			  }))

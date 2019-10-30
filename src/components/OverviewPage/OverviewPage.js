@@ -62,11 +62,11 @@ const ViewPage = ({ setView }) => {
 	return (
 		<main>
 			<Header size={"large"} text={"Welcome to your first week, Paul"} />
-			<img
+			{/* <img
 				className={styles.greetingimg}
 				src="https://assets-ouch.icons8.com/preview/296/904d624f-3edc-40b7-8ff0-29fa5f3ef00b.png"
 				alt=""
-			/>
+			/> */}
 			<UpNext />
 			<Progress tasksData={tasksData} />
 			<TaskOverviewList

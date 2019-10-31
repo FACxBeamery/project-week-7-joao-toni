@@ -8,14 +8,14 @@ import styles from "./OverviewPage.module.css";
 import TaskOverviewList from "../TaskOverviewList";
 
 // TODO remove import after API implementation
-import { dummyData } from "../../utils/dummyData";
+import { tasksData } from "../../dummyData/tasksData";
 
 const OverviewPage = ({ setView }) => {
 	const [tasksData, setTasksData] = useState({});
 
 	useEffect(() => {
 		// TODO api implementation
-		const data = dummyData;
+		const data = tasksData;
 
 		setTasksData(data);
 	}, [setTasksData]);

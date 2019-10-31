@@ -1,4 +1,4 @@
-const dummyData = {
+const tasksData = {
 	Monday: [
 		{
 			id: 1,
@@ -53,4 +53,4 @@ const dummyData = {
 	Friday: []
 };
 
-export { dummyData };
+export { tasksData };

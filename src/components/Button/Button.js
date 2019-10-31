@@ -7,12 +7,16 @@ const Button = ({
 	size = "medium",
 	category = "primary",
 	buttonText,
-	onClick = defaultOnClick
+	onClick = defaultOnClick,
+	isActive = true
 }) => {
 	return (
 		<button
-			className={`${styles.button} ${styles[category]} ${styles[size]}`}
+			className={`${styles.button} ${styles[category]} ${styles[size]}  ${
+				!isActive ? styles["inactive"] : ""
+			}`}
 			onClick={onClick}
+			disabled={!isActive}
 		>
 			{buttonText}
 		</button>

@@ -25,14 +25,16 @@
 	--serif: "Merriweather", serif;
 	--sans-serif: "Merriweather Sans", sans-serif;
 
-	--xxxs: 0.0625rem;
-	--xxs: 0.125rem;
-	--xs: 0.25rem;
-	--s: 0.5rem;
-	--m: 1rem;
-	--l: 2rem;
-	--xl: 4rem;
-	--xxl: 8rem;
+	--xxxxs: 0.168rem;
+	--xxxs: 0.512rem;
+	--xxs: 0.64rem;
+	--xs: 0.8rem;
+	--s: 1rem;
+	--m: 1.25rem;
+	--l: 1.563rem;
+	--xl: 1.953rem;
+	--xxl: 2.441rem;
+	--xxxl: 5.96rem;
 }
 
 body,

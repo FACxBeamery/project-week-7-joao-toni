@@ -1,7 +1,7 @@
 .button {
-	padding: var(--s) var(--m);
+	padding: var(--xxxs) var(--s);
 	background: none;
-	border-radius: var(--xs);
+	border-radius: var(--xxs);
 	border: none;
 	cursor: pointer;
 	color: var(--bmr-dark-10);
@@ -11,20 +11,20 @@
 }
 
 .small {
-	font-size: var(--s);
+	font-size: var(--xs);
 }
 
 .medium {
-	font-size: var(--m);
+	font-size: var(--s);
 }
 
 .large {
-	font-size: var(--l);
+	font-size: var(--m);
 }
 
 .primary {
 	background: var(--bmr-green);
-	border: var(--xxxs) solid var(--bmr-green);
+	border: var(--xxxxs) solid var(--bmr-green);
 	transition: background 0.3s;
 }
 
@@ -34,7 +34,7 @@
 
 .secondary {
 	background: var(--bmr-aqua);
-	border: var(--xxxs) solid var(--bmr-aqua);
+	border: var(--xxxxs) solid var(--bmr-aqua);
 	transition: background 0.3s;
 }
 
@@ -44,7 +44,7 @@
 
 .accent {
 	background: var(--bmr-purple);
-	border: var(--xxxs) solid var(--bmr-purple);
+	border: var(--xxxxs) solid var(--bmr-purple);
 	transition: background 0.3s;
 }
 
@@ -55,10 +55,15 @@
 .outlined {
 	background: var(--bmr-dark-10);
 	color: var(--bmr-dark-100);
-	border: var(--xxxs) solid var(--bmr-green);
+	border: var(--xxxxs) solid var(--bmr-green);
 	transition: background 0.3s;
 }
 
 .outlined:hover {
 	background: var(--bmr-dark-20);
+}
+
+.inactive {
+	opacity: 0.5;
+	cursor: not-allowed;
 }

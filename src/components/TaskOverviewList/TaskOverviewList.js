@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./TaskOverviewList.module.css";
 
 import TaskOverviewRow from "./TaskOverviewRow";
@@ -18,7 +18,9 @@ export const getDayName = (id) => {
 	return weekday[id];
 };
 
-const TaskOverviewList = ({ tasksData, isExpanded = false, setIsExpanded }) => {
+const TaskOverviewList = ({ tasksData }) => {
+	const [isExpanded, setIsExpanded] = useState(false);
+
 	//Functionality
 	const handleClick = () => {
 		setIsExpanded(!isExpanded);

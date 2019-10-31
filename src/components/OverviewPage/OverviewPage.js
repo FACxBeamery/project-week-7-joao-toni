@@ -7,66 +7,15 @@ import styles from "./OverviewPage.module.css";
 
 import TaskOverviewList from "../TaskOverviewList";
 
-const ViewPage = ({ setView }) => {
+// TODO remove import after API implementation
+import { dummyData } from "../../utils/dummyData";
+
+const OverviewPage = ({ setView }) => {
 	const [tasksData, setTasksData] = useState({});
-	const [isExpanded, setIsExpanded] = useState(false);
 
 	useEffect(() => {
 		// TODO api implementation
-		const data = {
-			Monday: [
-				{
-					id: 1,
-					title: "Intro Task",
-					description: "Meet the team!",
-					time: "12:00",
-					taskWith: {
-						name: "Yob Yan",
-						position: "Grad Manager"
-					},
-					progress: "inprogress"
-				},
-				{
-					id: 2,
-					title: "Meet Your Laptop!",
-					description: "Unbox yo goodies",
-					time: "17:00",
-					taskWith: {
-						name: "Grads",
-						position: "Grad Team"
-					},
-					progress: "inprogress"
-				}
-			],
-			Tuesday: [
-				{
-					id: 3,
-					title: "Intro Task",
-					description: "Meet the team!",
-					time: "12:00",
-					taskWith: {
-						name: "Yob Yan",
-						position: "Grad Manager"
-					},
-					progress: "complete"
-				}
-			],
-			Wednesday: [
-				{
-					id: 4,
-					title: "Beamery Product intro meeting",
-					description: "Meet the product!",
-					time: "12:00",
-					taskWith: {
-						name: "Yob Yan",
-						position: "Grad Manager"
-					},
-					progress: "inprogress"
-				}
-			],
-			Thursday: [],
-			Friday: []
-		};
+		const data = dummyData;
 
 		setTasksData(data);
 	}, [setTasksData]);
@@ -81,13 +30,9 @@ const ViewPage = ({ setView }) => {
 			/> */}
 			<UpNext />
 			<Progress tasksData={tasksData} />
-			<TaskOverviewList
-				tasksData={tasksData}
-				isExpanded={isExpanded}
-				setIsExpanded={setIsExpanded}
-			/>
+			<TaskOverviewList tasksData={tasksData} />
 		</main>
 	);
 };
 
-export default ViewPage;
+export default OverviewPage;

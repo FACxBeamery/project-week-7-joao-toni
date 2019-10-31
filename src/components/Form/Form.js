@@ -6,6 +6,10 @@ import styles from "./Form.module.css";
 const areAllObjPropsFalse = (obj) =>
 	Object.values(obj).every((v) => v === false);
 
+const SuccessMessageWrapper = (props) => (
+	<div className={styles["success-message-wrapper"]}>{props.children}</div>
+);
+
 const Form = () => {
 	const [inputs, setInputs] = useState({});
 	const [errors, setErrors] = useState({
@@ -31,7 +35,7 @@ const Form = () => {
 	}, [errors]);
 
 	return submitted ? (
-		<div className={styles["success-message-wrapper"]}>
+		<SuccessMessageWrapper>
 			<p className={styles["success-message"]}>
 				Event added successfully{" "}
 				<span role="img" aria-label="tick emoji">
@@ -44,7 +48,7 @@ const Form = () => {
 				category={"accent"}
 				onClick={handleSubmit}
 			/>
-		</div>
+		</SuccessMessageWrapper>
 	) : (
 		<form className={styles.form} onSubmit={handleSubmit}>
 			<FormField

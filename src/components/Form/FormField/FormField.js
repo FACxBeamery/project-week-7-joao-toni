@@ -44,8 +44,7 @@ const FormField = ({
 	setInputs,
 	setErrors,
 	regex = undefined,
-	errorMessage = "This field is required. ",
-	checkIfThereAreErrors
+	errorMessage = "This field is required. "
 }) => {
 	// console.log(regex);
 

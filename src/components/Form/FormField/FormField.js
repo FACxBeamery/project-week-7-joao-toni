@@ -44,14 +44,8 @@ const FormField = ({
 	setInputs,
 	setErrors,
 	regex = undefined,
-	errorMessage = "This field is required. "
+	errorMessage = "This field is required."
 }) => {
-	// console.log(regex);
-
-	// const validationRegex = new RegExp(regex);
-
-	// console.log(validationRegex);
-
 	const handleInputChange = (e) => {
 		e.persist();
 

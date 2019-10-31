@@ -6,28 +6,53 @@ import NewEventForm from "./NewEventForm";
 afterEach(cleanup);
 
 describe("Testing the Form component", () => {
-	const { getByLabelText } = render(<NewEventForm />);
-	const formFieldNode = getByLabelText("Title of the event*");
-	// console.log(formFieldNode);
-
-	// let badgeNode = getByText("in progress");
-	test("test1", () => {
-		fireEvent.change(formFieldNode, {
+	const { getByLabelText, getByText } = render(<NewEventForm />);
+	const eventTitleNode = getByLabelText("Title of the event*");
+	const descriptionNode = getByLabelText("Description*");
+	const hostNode = getByLabelText("Who's the host?*");
+	const dueDateNode = getByLabelText("Due date*");
+	const buttonFormNode = getByText("Add new event");
+	test("input borders should change from red to green border colour", () => {
+		expect(eventTitleNode).toHaveClass("input");
+		fireEvent.change(eventTitleNode, {
 			target: { value: " " }
 		});
-		fireEvent.change(formFieldNode, {
-			target: { value: " wdsdfsdf" }
-		});
+		expect(eventTitleNode).toHaveClass("redborder");
 
-		expect(formFieldNode).toHaveClass("input");
-		expect(formFieldNode).toHaveClass("greenborder");
+		fireEvent.change(eventTitleNode, {
+			target: { value: "sdfsdf" }
+		});
+		expect(eventTitleNode).toHaveClass("greenborder");
+		expect(buttonFormNode).toHaveClass("inactive");
 	});
-	test("test2", () => {
-		fireEvent.change(formFieldNode, {
-			target: { value: null }
+	test("form fields should be filled with user input", () => {
+		fireEvent.change(eventTitleNode, {
+			target: { value: " " }
 		});
-
-		expect(formFieldNode).toHaveClass("input");
-		expect(formFieldNode).toHaveClass("redborder");
+		fireEvent.change(eventTitleNode, {
+			target: { value: "aushdui " }
+		});
+		fireEvent.change(descriptionNode, {
+			target: { value: " " }
+		});
+		fireEvent.change(descriptionNode, {
+			target: { value: "aushdui " }
+		});
+		fireEvent.change(hostNode, {
+			target: { value: " " }
+		});
+		fireEvent.change(hostNode, {
+			target: { value: "aushdui " }
+		});
+		fireEvent.change(dueDateNode, {
+			target: { value: " " }
+		});
+		fireEvent.change(dueDateNode, {
+			target: { value: "12:00" }
+		});
+		expect(eventTitleNode.value).toBe("aushdui ");
+		expect(descriptionNode.value).toBe("aushdui ");
+		expect(hostNode.value).toBe("aushdui ");
+		expect(dueDateNode.value).toBe("12:00");
 	});
 });

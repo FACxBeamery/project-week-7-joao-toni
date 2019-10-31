@@ -2,7 +2,7 @@ import React from "react";
 import { render, fireEvent, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import TaskOverviewList, { getDayName } from "./TaskOverviewList";
-import { dummyData } from "../../utils/dummyData";
+import { tasksData } from "../../dummyData/tasksData";
 
 afterEach(cleanup);
 
@@ -20,7 +20,7 @@ describe("Testing the TaskOverviewList component", () => {
 		);
 
 		const { getByText, getAllByText } = render(
-			<TaskOverviewList tasksData={dummyData} />
+			<TaskOverviewList tasksData={tasksData} />
 		);
 
 		const taskListHeader = getByText("Today's Overview");

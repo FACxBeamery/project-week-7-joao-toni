@@ -16,12 +16,12 @@
 .sub-header {
 	color: var(--bmr-dark-80);
 	font-weight: 300;
-	font-size: var(--s);
+	font-size: var(--m);
 }
 
 .description {
 	flex: 1;
-	font-size: var(--s);
+	font-size: var(--m);
 }
 
 .content-wrapper {

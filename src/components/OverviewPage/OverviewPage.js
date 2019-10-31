@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Header from "../Header";
 import Progress from "../Progress";
 import UpNext from "../UpNext";
+import Button from "../Button";
 import styles from "./OverviewPage.module.css";
 
 import TaskOverviewList from "../TaskOverviewList";
@@ -21,17 +22,31 @@ const OverviewPage = ({ setView }) => {
 	}, [setTasksData]);
 
 	return (
-		<main>
-			<Header size={"large"} text={"Welcome to your first week, Paul"} />
-			{/* <img
+		<>
+			<nav>
+				<Button
+					onClick={(e) => setView("main")}
+					category="accent"
+					buttonText={"< Go back to main menu"}
+				/>
+			</nav>
+			<main>
+				<Header
+					size={"large"}
+					text={"Welcome to your first week, Paul"}
+				/>
+				{/* <img
 				className={styles.greetingimg}
 				src="https://assets-ouch.icons8.com/preview/296/904d624f-3edc-40b7-8ff0-29fa5f3ef00b.png"
 				alt=""
 			/> */}
-			<UpNext />
-			<Progress tasksData={tasksData} />
-			<TaskOverviewList tasksData={tasksData} />
-		</main>
+				<div className={styles["top-content"]}>
+					<UpNext />
+					<Progress tasksData={tasksData} />
+				</div>
+				<TaskOverviewList tasksData={tasksData} />
+			</main>
+		</>
 	);
 };
 

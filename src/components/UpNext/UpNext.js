@@ -16,8 +16,8 @@ const UpNext = () => {
 				at <span className={styles["accent"]}>16:00</span> today!
 			</p>
 			<img
-				src="https://assets-ouch.icons8.com/preview/139/4ee85576-55f0-4025-8f6d-98f9a33938e8.png"
-				alt=""
+				src="https://dwv100zweqd2m.cloudfront.net/uploads/user/company_logo/28/beamery.png"
+				alt="Beamery's logo"
 				className={styles.img}
 			/>
 		</div>

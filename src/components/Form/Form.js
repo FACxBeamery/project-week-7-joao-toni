@@ -26,17 +26,9 @@ const Form = () => {
 		}
 	};
 
-	const checkIfThereAreErrors = () => {
-		console.log("im here.:", errors);
-
-		//
-		// Object.values(errors).every((key) => console.log(key));
-		if (areAllObjPropsFalse(errors)) {
-			console.log("IM HEREEEEEE");
-
-			setValidForm(true);
-		}
-	};
+	useEffect(() => {
+		setValidForm(areAllObjPropsFalse(errors));
+	}, [errors]);
 
 	return submitted ? (
 		<div className={styles["success-message-wrapper"]}>
@@ -62,7 +54,6 @@ const Form = () => {
 				errors={errors}
 				setInputs={setInputs}
 				setErrors={setErrors}
-				checkIfThereAreErrors={checkIfThereAreErrors}
 			/>
 			<FormField
 				label={"eventDescription"}
@@ -72,7 +63,6 @@ const Form = () => {
 				errors={errors}
 				setInputs={setInputs}
 				setErrors={setErrors}
-				checkIfThereAreErrors={checkIfThereAreErrors}
 			/>
 			<FormField
 				label={"eventHost"}
@@ -81,7 +71,6 @@ const Form = () => {
 				errors={errors}
 				setInputs={setInputs}
 				setErrors={setErrors}
-				checkIfThereAreErrors={checkIfThereAreErrors}
 			/>
 			<FormField
 				label={"eventDueDate"}
@@ -90,7 +79,6 @@ const Form = () => {
 				errors={errors}
 				setInputs={setInputs}
 				setErrors={setErrors}
-				checkIfThereAreErrors={checkIfThereAreErrors}
 				regex={true}
 				errorMessage="This field is required and needs to be on the following format HH:MM, e.g. 12:00, 01:00, etc"
 			/>

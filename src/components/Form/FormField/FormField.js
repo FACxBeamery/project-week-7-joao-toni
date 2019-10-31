@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import styles from "./FormField.module.css";
 
@@ -55,6 +55,7 @@ const FormField = ({
 
 	const handleInputChange = (e) => {
 		e.persist();
+
 		setInputs((inputs) => ({
 			...inputs,
 			[e.target.name]: e.target.value
@@ -73,7 +74,6 @@ const FormField = ({
 					...errors,
 					[e.target.name]: e.target.value ? false : true
 			  }));
-		checkIfThereAreErrors();
 	};
 
 	return (

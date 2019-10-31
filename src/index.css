@@ -25,6 +25,7 @@
 	--serif: "Merriweather", serif;
 	--sans-serif: "Merriweather Sans", sans-serif;
 
+	/* taken from here https://type-scale.com */
 	--xxxxs: 0.168rem;
 	--xxxs: 0.512rem;
 	--xxs: 0.64rem;

@@ -1,27 +1,29 @@
 .card {
-	border-radius: var(--s);
+	border-radius: var(--xxs);
 	background: var(--bmr-dark-10);
 	display: flex;
 	border: 0.0625rem solid var(--bmr-dark-40);
 	box-shadow: var(--xs) var(--xs) var(--xs) var(--bmr-dark-30);
-	width: 30vw;
+	width: 40%;
 	padding: 1rem;
 	margin: 0rem 1rem 1rem 0rem;
 }
 
 .header {
-	border-bottom: var(--xxxs) solid var(--bmr-dark-80);
+	border-bottom: 0.0625rem solid var(--bmr-dark-80);
 }
 
 .sub-header {
 	color: var(--bmr-dark-80);
 	font-weight: 300;
-	font-size: var(--m);
+	font-size: var(--s);
+	margin: 0;
+	margin-bottom: var(--xxxs);
 }
 
 .description {
 	flex: 1;
-	font-size: var(--m);
+	font-size: var(--s);
 }
 
 .content-wrapper {

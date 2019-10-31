@@ -4,12 +4,15 @@
 }
 
 .container > p {
-	font-size: var(--m);
+	font-size: var(--xs);
+	margin: 0;
+	margin-bottom: var(--xxs);
 }
 
 .frame > img {
 	border-radius: 50%;
-	border: var(--xxxs) solid var(--bmr-dark-80);
+	border: 0.0625rem solid var(--bmr-dark-80);
+	margin-bottom: var(--xxxs);
 }
 
 .centre {

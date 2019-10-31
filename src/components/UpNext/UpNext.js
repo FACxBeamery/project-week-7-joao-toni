@@ -1,9 +1,10 @@
 import React from "react";
 
 import Header from "../Header";
+import Progress from "../Progress";
 import styles from "./UpNext.module.css";
 
-const UpNext = () => {
+const UpNext = ({ tasksData }) => {
 	return (
 		<div className={styles["upnext-wrapper"]}>
 			<div className={styles["title"]}>
@@ -15,11 +16,8 @@ const UpNext = () => {
 				{"  "}
 				at <span className={styles["accent"]}>16:00</span> today!
 			</p>
-			<img
-				src="https://dwv100zweqd2m.cloudfront.net/uploads/user/company_logo/28/beamery.png"
-				alt="Beamery's logo"
-				className={styles.img}
-			/>
+
+			<Progress tasksData={tasksData} />
 		</div>
 	);
 };

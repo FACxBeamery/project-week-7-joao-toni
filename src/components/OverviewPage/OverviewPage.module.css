@@ -1,3 +1,4 @@
 .top-content {
 	display: flex;
+	align-items: flex-end;
 }

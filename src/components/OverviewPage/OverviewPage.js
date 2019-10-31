@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 import Header from "../Header";
-import Progress from "../Progress";
 import UpNext from "../UpNext";
 import Button from "../Button";
 import styles from "./OverviewPage.module.css";
@@ -41,8 +40,7 @@ const OverviewPage = ({ setView }) => {
 				alt=""
 			/> */}
 				<div className={styles["top-content"]}>
-					<UpNext />
-					<Progress tasksData={tasksData} />
+					<UpNext tasksData={tasksData} />
 				</div>
 				<TaskOverviewList tasksData={tasksData} />
 			</main>

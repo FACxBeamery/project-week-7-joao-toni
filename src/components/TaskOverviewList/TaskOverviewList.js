@@ -30,7 +30,7 @@ const TaskOverviewList = ({ tasksData }) => {
 	const expandListButton = (
 		<Button
 			buttonText="Expand Tasks"
-			category="outlined"
+			category="primary"
 			onClick={handleClick}
 		/>
 	);

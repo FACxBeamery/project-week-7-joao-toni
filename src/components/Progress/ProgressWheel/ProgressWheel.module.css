@@ -1,3 +1,8 @@
+.svg-box {
+	background: white;
+	border-radius: 50%;
+}
+
 .circle-background,
 .circle-progress {
 	fill: none;
@@ -13,8 +18,12 @@
 	stroke-linejoin: round;
 }
 
+.circle-progress:hover {
+	stroke: var(--bmr-aqua--darker);
+}
+
 .circle-text {
-	font-size: 3em;
+	font-size: var(--xl);
 	font-weight: bold;
 	fill: var(--bmr-aqua--darker);
 }

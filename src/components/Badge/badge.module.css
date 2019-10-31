@@ -5,7 +5,7 @@
 	align-self: flex-end;
 	border-radius: 1.25rem;
 	padding: 0.5rem 0.75rem;
-	font-size: var(--m);
+	font-size: var(--xs);
 	margin: 0;
 	margin-bottom: var(--m);
 }

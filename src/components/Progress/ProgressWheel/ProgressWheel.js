@@ -14,7 +14,12 @@ const ProgressWheel = ({ strokeWidth, sqSize, percentage }) => {
 	// Scale 100% coverage overlay with the actual percent
 	const dashOffset = dashArray - (dashArray * percentage) / 100;
 	return (
-		<svg width={sqSize} height={sqSize} viewBox={viewBox}>
+		<svg
+			className={styles["svg-box"]}
+			width={sqSize}
+			height={sqSize}
+			viewBox={viewBox}
+		>
 			<circle
 				className={styles["circle-background"]}
 				cx={sqSize / 2}

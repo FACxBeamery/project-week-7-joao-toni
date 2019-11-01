@@ -22,3 +22,9 @@
 .title-position--green {
 	color: var(--bmr-green);
 }
+
+@media (max-width: 400px) {
+	.container > p {
+		font-size: var(--xxs);
+	}
+}

@@ -98,7 +98,7 @@ describe("Testing the TaskOverviewList component", () => {
 		const btnNode = getByText("Re-open task");
 		fireEvent.click(btnNode);
 
-		expect(btnNode).toHaveTextContent("Complete");
+		expect(btnNode).toHaveTextContent("Mark as complete");
 		expect(badgeNode).toHaveTextContent("in progress");
 
 		const expandBtn = getByText("Expand Tasks");
@@ -122,11 +122,11 @@ describe("Testing the TaskOverviewList component", () => {
 		const mondayTask2WithName = getByText("Grads");
 		const mondayTask2WithPos = getByText("Grad Team");
 
-		const allTasksInProgress = getAllByText("Complete");
+		const allTasksInProgress = getAllByText("Mark as complete");
 
 		// Put all tasks to complete
 		allTasksInProgress.forEach((completeBtn) => {
-			expect(completeBtn).toHaveTextContent("Complete");
+			expect(completeBtn).toHaveTextContent("Mark as complete");
 			fireEvent.click(completeBtn);
 			expect(completeBtn).toHaveTextContent("Re-open task");
 		});

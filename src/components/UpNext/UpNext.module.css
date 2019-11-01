@@ -38,3 +38,9 @@
 	top: -3rem;
 	background: white;
 }
+
+@media (max-width: 400px) {
+	.upnext-wrapper {
+		width: 100vw;
+	}
+}

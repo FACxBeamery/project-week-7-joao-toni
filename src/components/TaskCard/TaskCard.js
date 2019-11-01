@@ -55,7 +55,7 @@ const TaskCard = ({
 	// Conditionals
 	const typeIsProg = type === typeProg;
 
-	const btnText = typeIsProg ? "Complete" : "Re-open task";
+	const btnText = typeIsProg ? "Mark as complete" : "Re-open task";
 	const btnCategory = typeIsProg ? "primary" : "accent";
 
 	const handleClick = typeIsProg

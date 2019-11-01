@@ -18,3 +18,9 @@
 	background: var(--bmr-green);
 	color: var(--bmr-dark-10);
 }
+
+@media (max-width: 400px) {
+	.badge {
+		font-size: var(--xxs);
+	}
+}

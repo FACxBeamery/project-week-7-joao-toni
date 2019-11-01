@@ -4,6 +4,12 @@
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
+	background-image: url(https://assets-ouch.icons8.com/preview/274/2815d839-8cf4-4348-8d8a-b64a24876d27.png);
+	background-size: 100vw;
+	background-position: center;
+	background-color: rgba(256, 256, 256, 0.81) !important;
+	background-blend-mode: hue;
+	background-repeat: no-repeat;
 }
 
 .button-wrapper {

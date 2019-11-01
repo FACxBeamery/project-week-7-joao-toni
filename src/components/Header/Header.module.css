@@ -32,3 +32,7 @@
 	background: lightgoldenrodyellow;
 	width: fit-content;
 }
+
+.centered {
+	text-align: center;
+}

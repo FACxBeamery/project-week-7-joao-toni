@@ -6,7 +6,11 @@ import Form from "../Form";
 const NewEventForm = () => {
 	return (
 		<header>
-			<Header size={"large"} text={"Add new first week event"} />
+			<Header
+				size={"large"}
+				text={"🗓 Add new first week event 🗓"}
+				centered={true}
+			/>
 			<Form />
 		</header>
 	);

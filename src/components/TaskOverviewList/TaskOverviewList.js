@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./TaskOverviewList.module.css";
 
 import TaskOverviewRow from "./TaskOverviewRow";
@@ -18,7 +18,7 @@ export const getDayName = (id) => {
 	return weekday[id];
 };
 
-const TaskOverviewList = ({ tasksData }) => {
+const TaskOverviewList = ({ tasksData, setTasksData }) => {
 	const [isExpanded, setIsExpanded] = useState(false);
 
 	//Functionality
@@ -54,8 +54,10 @@ const TaskOverviewList = ({ tasksData }) => {
 				/>
 				<TaskOverviewRow
 					key={day}
+					dayName={day}
 					day={day}
-					tasksData={tasksData[day]}
+					tasksData={tasksData}
+					setTasksData={setTasksData}
 					className={styles["row-wrapper"]}
 				/>
 			</div>
@@ -70,8 +72,9 @@ const TaskOverviewList = ({ tasksData }) => {
 			<>
 				<Header text={"Today's Overview"} />
 				<TaskOverviewRow
-					day={"Today's View"}
-					tasksData={tasksData[curDay]}
+					day={curDay}
+					setTasksData={setTasksData}
+					tasksData={tasksData}
 				/>
 			</>
 		);

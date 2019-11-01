@@ -36,7 +36,10 @@ const OverviewPage = ({ setView }) => {
 				<div className={styles["top-content"]}>
 					<UpNext tasksData={tasksData} />
 				</div>
-				<TaskOverviewList tasksData={tasksData} />
+				<TaskOverviewList
+					tasksData={tasksData}
+					setTasksData={setTasksData}
+				/>
 			</main>
 		</>
 	);

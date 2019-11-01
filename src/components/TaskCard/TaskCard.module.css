@@ -41,3 +41,24 @@
 	display: flex;
 	justify-content: space-between;
 }
+
+@media (max-width: 800px) {
+	.card {
+		width: 100%;
+		margin-right: 0rem;
+	}
+}
+@media (max-width: 400px) {
+	.header {
+		font-size: var(--xs);
+	}
+
+	.sub-header {
+		font-size: var(--xxs);
+	}
+
+	.description {
+		flex: 1;
+		font-size: var(--xxs);
+	}
+}

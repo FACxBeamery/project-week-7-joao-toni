@@ -1,6 +1,6 @@
 .form {
 	display: flex;
-	/* align-items: baseline; */
+	align-items: baseline;
 	flex-direction: column;
 	background-color: white;
 }

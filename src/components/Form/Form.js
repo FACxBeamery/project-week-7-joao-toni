@@ -14,8 +14,9 @@ const Form = () => {
 	const [inputs, setInputs] = useState({});
 	const [errors, setErrors] = useState({
 		eventDescription: undefined,
-		eventDueDate: undefined,
+		eventWeekDay: undefined,
 		eventHost: undefined,
+		eventTime: undefined,
 		eventTitle: undefined
 	});
 	const [validForm, setValidForm] = useState(false);
@@ -42,12 +43,6 @@ const Form = () => {
 					✅
 				</span>
 			</p>
-			<Button
-				size={"large"}
-				buttonText={"Go back to main menu"}
-				category={"accent"}
-				onClick={handleSubmit}
-			/>
 		</SuccessMessageWrapper>
 	) : (
 		<form className={styles.form} onSubmit={handleSubmit}>
@@ -77,8 +72,24 @@ const Form = () => {
 				setErrors={setErrors}
 			/>
 			<FormField
-				label={"eventDueDate"}
-				title={"Due date"}
+				label={"eventWeekDay"}
+				title={"Day of the week"}
+				inputs={inputs}
+				errors={errors}
+				setInputs={setInputs}
+				type={"select"}
+				options={[
+					"Monday",
+					"Tuesday",
+					"Wednesday",
+					"Thursday",
+					"Friday"
+				]}
+				setErrors={setErrors}
+			/>
+			<FormField
+				label={"eventTime"}
+				title={"Time of the event (HH:MM)"}
 				inputs={inputs}
 				errors={errors}
 				setInputs={setInputs}

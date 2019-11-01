@@ -35,6 +35,29 @@ const Input = ({ label, handleInputChange, errors, inputs }) => {
 	);
 };
 
+const Select = ({ label, handleInputChange, errors, inputs, options }) => {
+	return (
+		<select
+			value={inputs[label] || ""}
+			name={label}
+			id={label}
+			onChange={handleInputChange}
+			className={`${styles.input} ${styles.select} ${
+				errors[label] === true ? styles.redborder : ""
+			} ${errors[label] === false ? styles.greenborder : ""} `}
+		>
+			<option value="">Select a day of the week</option>
+			{options.map((option, idx) => {
+				return (
+					<option key={idx} value={option}>
+						{option}
+					</option>
+				);
+			})}
+		</select>
+	);
+};
+
 const FormField = ({
 	label,
 	title,
@@ -44,7 +67,8 @@ const FormField = ({
 	setInputs,
 	setErrors,
 	regex = undefined,
-	errorMessage = "This field is required."
+	errorMessage = "This field is required.",
+	options
 }) => {
 	const handleInputChange = (e) => {
 		e.persist();
@@ -68,26 +92,40 @@ const FormField = ({
 					[e.target.name]: e.target.value ? false : true
 			  }));
 	};
-
+	let input;
+	if (type === "input") {
+		input = (
+			<Input
+				label={label}
+				handleInputChange={handleInputChange}
+				errors={errors}
+				inputs={inputs}
+			/>
+		);
+	} else if (type === "textarea") {
+		input = (
+			<TextArea
+				label={label}
+				handleInputChange={handleInputChange}
+				errors={errors}
+				inputs={inputs}
+			/>
+		);
+	} else if (type === "select") {
+		input = (
+			<Select
+				label={label}
+				handleInputChange={handleInputChange}
+				errors={errors}
+				inputs={inputs}
+				options={options}
+			/>
+		);
+	}
 	return (
 		<div className={styles["form-field"]}>
 			<label className={styles.label} htmlFor={label}>
-				{title}*
-				{type === "input" ? (
-					<Input
-						label={label}
-						handleInputChange={handleInputChange}
-						errors={errors}
-						inputs={inputs}
-					/>
-				) : (
-					<TextArea
-						label={label}
-						handleInputChange={handleInputChange}
-						errors={errors}
-						inputs={inputs}
-					/>
-				)}
+				{title}*{input}
 			</label>
 			{errors[label] ? (
 				<p className={styles["warning"]}>{errorMessage} </p>

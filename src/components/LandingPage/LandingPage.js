@@ -8,7 +8,7 @@ const LandingPage = ({ setView }) => {
 	return (
 		<div className={styles.landingpage}>
 			<header className={styles["header-wrapper"]}>
-				<Header size={"large"} text={"Hi Paul"} />
+				<Header size={"large"} text={"Hi 🤓"} />
 				<Header
 					size={"medium"}
 					text={"Welcome to Beamery. Let's get started!"}
@@ -24,7 +24,7 @@ const LandingPage = ({ setView }) => {
 				<Button
 					size={"large"}
 					category={"outlined"}
-					buttonText={"Not Paul? Sign in as admin "}
+					buttonText={"Sign in as admin "}
 					onClick={(e) => setView("admin")}
 				/>
 			</div>

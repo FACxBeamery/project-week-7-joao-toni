@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import NewEventForm from "../NewEventForm";
 import Button from "../Button";
+import Header from "../Header";
+import styles from "./AdminPage.module.css";
 
 const AdminPage = ({ setView }) => {
+	const [showAction, setShowAction] = useState(false);
 	return (
 		<>
 			<Button
@@ -10,7 +13,19 @@ const AdminPage = ({ setView }) => {
 				category="accent"
 				buttonText={"< Go back to main menu"}
 			/>
-			<NewEventForm />
+			<Header text={"Admin - settings"} size={"large"} />
+			{showAction ? (
+				<NewEventForm />
+			) : (
+				<div className={styles.actions}>
+					<Header size={"medium"} text={"Actions Available"} />
+					<Button
+						onClick={(e) => setShowAction(true)}
+						category="outlined"
+						buttonText={"Create a new first-week event 🗓"}
+					/>
+				</div>
+			)}
 		</>
 	);
 };

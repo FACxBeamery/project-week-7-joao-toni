@@ -25,6 +25,12 @@
 	resize: none;
 }
 
+.select {
+	background: white;
+	font-style: oblique;
+	font-size: var(--s);
+}
+
 .redborder {
 	border: 0.0625rem solid indianred;
 }

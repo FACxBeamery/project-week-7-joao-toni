@@ -18,8 +18,27 @@ export const getDayName = (id) => {
 	return weekday[id];
 };
 
+const FilterComplete = ({ isFiltered, setIsFiltered }) => {
+	return (
+		<div className={styles["checkbox-wrapper"]}>
+			<span className={styles.badge}>
+				<p>Filter Completed</p>
+				<label className={styles.switch}>
+					<input
+						type="checkbox"
+						checked={isFiltered}
+						onChange={(event) => setIsFiltered(!isFiltered)}
+					/>
+					<span className={`${styles.slider} ${styles.round}`}></span>
+				</label>
+			</span>
+		</div>
+	);
+};
+
 const TaskOverviewList = ({ tasksData, setTasksData }) => {
 	const [isExpanded, setIsExpanded] = useState(false);
+	const [isFiltered, setIsFiltered] = useState(false);
 
 	//Functionality
 	const handleClick = () => {
@@ -58,6 +77,7 @@ const TaskOverviewList = ({ tasksData, setTasksData }) => {
 					day={day}
 					tasksData={tasksData}
 					setTasksData={setTasksData}
+					isFiltered={isFiltered}
 					className={styles["row-wrapper"]}
 				/>
 			</div>
@@ -75,6 +95,7 @@ const TaskOverviewList = ({ tasksData, setTasksData }) => {
 					day={curDay}
 					setTasksData={setTasksData}
 					tasksData={tasksData}
+					isFiltered={isFiltered}
 				/>
 			</>
 		);
@@ -86,6 +107,10 @@ const TaskOverviewList = ({ tasksData, setTasksData }) => {
 
 	return (
 		<section className={styles["tasks-section"]}>
+			<FilterComplete
+				isFiltered={isFiltered}
+				setIsFiltered={setIsFiltered}
+			/>
 			{tasksListType}
 			<div className={styles["button-wrapper"]}>{matchListButton}</div>
 		</section>

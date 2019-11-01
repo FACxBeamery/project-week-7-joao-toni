@@ -31,11 +31,11 @@ const TaskCard = ({
 	description,
 	time,
 	taskWith,
-	progress
+	progress,
+	isFiltered = false
 }) => {
 	// Consts
 	const [typeProg, typeComp] = ["inprogress", "complete"];
-
 	const [type, setType] = useState(typeProg);
 
 	useEffect(() => {

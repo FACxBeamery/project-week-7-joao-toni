@@ -11,12 +11,17 @@ const UpNext = ({ tasksData }) => {
 	const [employeeName, setEmployeeName] = useState(undefined);
 
 	useEffect(() => {
-		getMostRecent().then((data) => {
-			console.log(data);
+		getMostRecent()
+			.then((data) => {
+				console.log(data);
 
-			setNextTask(data);
-			setEmployeeName(data.taskWith);
-		});
+				setNextTask(data);
+				setEmployeeName(data.taskWith);
+			})
+			.catch((err) => {
+				setNextTask(undefined);
+				setEmployeeName(undefined);
+			});
 	});
 	return nextTask && employeeName ? (
 		<div className={styles["upnext-wrapper"]}>
@@ -37,14 +42,15 @@ const UpNext = ({ tasksData }) => {
 			<Progress tasksData={tasksData} />
 		</div>
 	) : (
-		<p>Loading Next Task...</p>
+		<div className={styles["upnext-wrapper"]}>
+			<div className={styles["title"]}>
+				<Header text={"Up Next"} />
+			</div>
+			<p className={styles["description"]}>No tasks for today!</p>
+
+			<Progress tasksData={tasksData} />
+		</div>
 	);
 };
-// { id: 6,
-// 	title: 'Beamery Product intro meeting',
-// 	description: 'Meet the product!',
-// 	time: '11:00',
-// 	taskWith: { name: 'Yob Yan', position: 'Grad Manager' },
-// 	progress: 'inprogress' }
 
 export default UpNext;

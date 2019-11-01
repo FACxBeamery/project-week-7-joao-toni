@@ -5,7 +5,8 @@ const Header = ({
 	size = "medium",
 	text,
 	sans = false,
-	highlighted = "no"
+	highlighted = "no",
+	centered = false
 }) => {
 	let header;
 
@@ -14,7 +15,7 @@ const Header = ({
 			<h1
 				className={`${styles.large} ${
 					highlighted === "yes" ? styles[text.toLowerCase()] : ""
-				}`}
+				} ${centered ? styles.centered : ""}`}
 			>
 				{text}
 			</h1>
@@ -24,7 +25,7 @@ const Header = ({
 			<h2
 				className={`${styles.medium} ${sans ? styles.sans : ""} ${
 					highlighted === "yes" ? styles[text.toLowerCase()] : ""
-				}`}
+				} ${centered ? styles.centered : ""}`}
 			>
 				{text}
 			</h2>

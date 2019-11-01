@@ -5,7 +5,34 @@ import Button from "../Button";
 import Badge from "../Badge";
 import ProfileArea from "../ProfileArea";
 
-const TaskCard = ({ id, title, description, time, taskWith, progress }) => {
+const updateTask = (id, day, toUpdateData = {}, tasksData) => {
+	// TODO update data through API call rather than dummyData
+	/* new obj so state can recognise mutation */
+	let newTasksData = { ...tasksData };
+	let dayTasks = newTasksData[day];
+
+	dayTasks.forEach((task, i) => {
+		if (task.id === id) {
+			newTasksData[day][i] = { ...task, ...toUpdateData };
+			return true;
+		}
+		return false;
+	});
+
+	return newTasksData;
+};
+
+const TaskCard = ({
+	setTasksData,
+	tasksData,
+	day,
+	id,
+	title,
+	description,
+	time,
+	taskWith,
+	progress
+}) => {
 	// Consts
 	const [typeProg, typeComp] = ["inprogress", "complete"];
 
@@ -16,17 +43,24 @@ const TaskCard = ({ id, title, description, time, taskWith, progress }) => {
 		else setType(typeProg);
 	}, [progress, setType, typeProg, typeComp]);
 
-	// handleClicks
+	// handleClick
 	// TODO update with mongodb call to update data
-	const typeProgHandleClick = () => setType(typeComp);
-	const typeCompHandleClick = () => setType(typeProg);
+	const handleChangeTypeToClick = (newType) => {
+		let newData = { progress: newType };
+
+		setTasksData(updateTask(id, day, newData, tasksData));
+		setType(newType);
+	};
 
 	// Conditionals
 	const typeIsProg = type === typeProg;
 
 	const btnText = typeIsProg ? "Complete" : "Re-open task";
 	const btnCategory = typeIsProg ? "primary" : "accent";
-	const handleClick = typeIsProg ? typeProgHandleClick : typeCompHandleClick;
+
+	const handleClick = typeIsProg
+		? () => handleChangeTypeToClick(typeComp)
+		: () => handleChangeTypeToClick(typeProg);
 
 	const Header = () => <h1>{title}</h1>;
 	const SubHeader = () => (

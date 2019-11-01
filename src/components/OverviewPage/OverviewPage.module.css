@@ -1,4 +1,5 @@
 .top-content {
 	display: flex;
 	align-items: flex-end;
+	margin-top: var(--xxxl);
 }

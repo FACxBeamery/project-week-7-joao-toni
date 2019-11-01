@@ -43,7 +43,7 @@ describe("Testing the TaskCard component", () => {
 			progress={"inprogress"}
 		/>
 	);
-	const buttonNode = getByText("Complete");
+	const buttonNode = getByText("Mark as complete");
 	let badgeNode = getByText("in progress");
 	test("Badge component's text content toggles from `in progress` to `complete` after task has been marked as completed", () => {
 		expect(badgeNode).toHaveTextContent("in progress");
@@ -51,7 +51,7 @@ describe("Testing the TaskCard component", () => {
 		expect(badgeNode).toHaveTextContent("complete");
 		expect(badgeNode).toHaveClass("complete");
 	});
-	test("Button component's text content toggles from `Complete` to `Re-open task` after task has been marked as completed", () => {
+	test("Button component's text content toggles from `Mark as complete` to `Re-open task` after task has been marked as completed", () => {
 		expect(buttonNode).toHaveTextContent("Re-open task");
 		expect(buttonNode).toHaveClass("accent");
 	});

@@ -16,6 +16,8 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin-bottom: var(--xxxl);
+	text-align: center;
 }
 
 .button-wrapper > button {

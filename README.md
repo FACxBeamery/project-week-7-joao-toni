@@ -2,6 +2,8 @@
 
 > This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+![Landing page screenshot](/landingpage.png?raw=true "Optional Title")
+
 ## Overview
 
 We have built a web app that helps a new Beamery starter on their first week by tracking their on-boarding events.  

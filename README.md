@@ -40,7 +40,6 @@ We had a design burst that covered the main processes for designing a product/ap
 This one was especially important for following a component-based software architecture. This helped us breaking down most elements into components.
 
 ## User Stories
-## User Stories
 
 As a DEVELOPER I need to WRITE INTEGRATION TESTS FOR MY APP so that I CAN PROVE MY APP WORKS AS EXPECTED
 

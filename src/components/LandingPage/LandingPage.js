@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Header from "../Header";
 import Button from "../Button";
 
@@ -24,7 +24,7 @@ const LandingPage = ({ setView }) => {
 				<Button
 					size={"large"}
 					category={"outlined"}
-					buttonText={"Sign in as admin "}
+					buttonText={"Sign in as admin"}
 					onClick={(e) => setView("admin")}
 				/>
 			</div>

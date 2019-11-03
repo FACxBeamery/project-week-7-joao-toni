@@ -10,7 +10,6 @@ describe("Testing the Form component", () => {
 	const eventTitleNode = getByLabelText("Title of the event*");
 	const descriptionNode = getByLabelText("Description*");
 	const hostNode = getByLabelText("Who's the host?*");
-	const dueDateNode = getByLabelText("Due date*");
 	const buttonFormNode = getByText("Add new event");
 	test("input borders should change from red to green border colour", () => {
 		expect(eventTitleNode).toHaveClass("input");
@@ -44,15 +43,9 @@ describe("Testing the Form component", () => {
 		fireEvent.change(hostNode, {
 			target: { value: "aushdui " }
 		});
-		fireEvent.change(dueDateNode, {
-			target: { value: " " }
-		});
-		fireEvent.change(dueDateNode, {
-			target: { value: "12:00" }
-		});
+	
 		expect(eventTitleNode.value).toBe("aushdui ");
 		expect(descriptionNode.value).toBe("aushdui ");
 		expect(hostNode.value).toBe("aushdui ");
-		expect(dueDateNode.value).toBe("12:00");
 	});
 });

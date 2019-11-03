@@ -3,8 +3,8 @@ import FormField from "./FormField";
 import Button from "../Button/Button";
 import styles from "./Form.module.css";
 
-const areAllObjPropsFalse = (obj) =>
-	Object.values(obj).every((v) => v === false);
+import {areAllObjPropsFalse} from "../../utils/areAllObjPropsFalse"
+
 
 const SuccessMessageWrapper = (props) => (
 	<div className={styles["success-message-wrapper"]}>{props.children}</div>

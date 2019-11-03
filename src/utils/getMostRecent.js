@@ -1,5 +1,5 @@
 import { tasksData } from "../dummyData/tasksData";
-import { getDayName } from "../utils/dateHelpers";
+import { getDayName } from "../utils/getDayName";
 
 export const getMostRecent = () => {
 	return new Promise((resolve, reject) => {

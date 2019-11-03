@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { render, fireEvent, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import TaskOverviewList, { getDayName } from "./TaskOverviewList";
-import { dummyData } from "../../dummyData/tasksData";
+import TaskOverviewList from "./TaskOverviewList";
+import {getDayName} from "../../utils/getDayName";
 
 afterEach(cleanup);
 

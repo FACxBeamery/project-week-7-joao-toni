@@ -2,31 +2,26 @@ import React, { useState } from "react";
 import NewEventForm from "../../components/NewEventForm";
 import Button from "../../components/Button";
 import Header from "../../components/Header";
-import styles from "./AdminPage.module.css";
+import AdminActions from "../../components/AdminActions"
 
 const AdminPage = ({ setView }) => {
-	const [showAction, setShowAction] = useState(false);
+	const [showAction, setShowAction] = useState("");
 	return (
-		<>
+		<div>
 			<Button
 				onClick={(e) => setView("main")}
 				category="accent"
 				buttonText={"< Go back to main menu"}
 			/>
 			<Header text={"Admin - settings"} size={"large"} />
-			{showAction ? (
+			{showAction === "addevent" ? (
 				<NewEventForm />
 			) : (
-				<div className={styles.actions}>
-					<Header size={"medium"} text={"Actions Available"} />
-					<Button
-						onClick={(e) => setShowAction(true)}
-						category="outlined"
-						buttonText={"Create a new first-week event 🗓"}
-					/>
-				</div>
+				<AdminActions 
+					setShowAction = {setShowAction}/>
+				
 			)}
-		</>
+		</div>
 	);
 };
 

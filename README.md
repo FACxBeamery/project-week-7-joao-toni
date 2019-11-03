@@ -16,10 +16,10 @@ We had a design burst that covered the main processes for designing a product/ap
 <a href="https://ibb.co/L0XqKFg"><img src="https://i.ibb.co/D1H6dJM/IMG-8727.jpg" alt="IMG-8727" border="0"></a>
 <a href="https://ibb.co/R6qq2ry"><img src="https://i.ibb.co/rpVVk8s/IMG-8728.jpg" alt="IMG-8728" border="0"></a>
 
-[] Learn Beamery's policies
-[] 'Cure' first-week blues
-[] Ease the overwhelming feeling of too many events/meetings
-[] Give them confidence by tracking their progress
+- [ ] Learn Beamery's policies
+- [ ] 'Cure' first-week blues
+- [ ] Ease the overwhelming feeling of too many events/meetings
+- [ ] Give them confidence by tracking their progress
 
 ### personas, scenarios. Who is PAUL??
 

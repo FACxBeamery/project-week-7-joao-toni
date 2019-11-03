@@ -7,8 +7,11 @@ const getDayName = (id) => {
 	weekday[4] = "Thursday";
 	weekday[5] = "Friday";
 	weekday[6] = "Saturday";
+	if (Number(id)) {
 
-	return weekday[id];
+		return weekday[id];
+	} else return ;
+
 };
 
 export { getDayName };

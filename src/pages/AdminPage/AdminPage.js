@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import NewEventForm from "../NewEventForm";
-import Button from "../Button";
-import Header from "../Header";
+import NewEventForm from "../../components/NewEventForm";
+import Button from "../../components/Button";
+import Header from "../../components/Header";
 import styles from "./AdminPage.module.css";
 
 const AdminPage = ({ setView }) => {

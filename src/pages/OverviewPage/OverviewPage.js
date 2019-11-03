@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 
-import Header from "../Header";
-import UpNext from "../UpNext";
-import Button from "../Button";
+import Header from "../../components/Header";
+import UpNext from "../../components/UpNext";
+import Button from "../../components/Button";
 import styles from "./OverviewPage.module.css";
 
-import TaskOverviewList from "../TaskOverviewList";
+import TaskOverviewList from "../../components/TaskOverviewList";
 
 // TODO remove import after API implementation
 import { getTasks } from "../../utils/getTasks";

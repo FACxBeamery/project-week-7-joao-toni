@@ -1,0 +1,6 @@
+.message {
+    margin-bottom: var(--m);
+	font-family: var(--sans);
+	font-size: var(--l);
+	text-align: center;
+}

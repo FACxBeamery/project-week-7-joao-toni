@@ -1,12 +1,29 @@
 # project-week-7-joao-toni
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Overview
+
+## Learning Outcomes
+
+
+## 'Product' design burst
+
 <a href="https://ibb.co/BPpN45G"><img src="https://i.ibb.co/VN1mHcx/IMG-8726.jpg" alt="IMG-8726" border="0"></a>
 <a href="https://ibb.co/L0XqKFg"><img src="https://i.ibb.co/D1H6dJM/IMG-8727.jpg" alt="IMG-8727" border="0"></a>
 <a href="https://ibb.co/R6qq2ry"><img src="https://i.ibb.co/rpVVk8s/IMG-8728.jpg" alt="IMG-8728" border="0"></a>
 <a href="https://ibb.co/yqnFTh5"><img src="https://i.ibb.co/x6SqvmG/IMG-8729.jpg" alt="IMG-8729" border="0"></a>
 <a href="https://ibb.co/BrX22MQ"><img src="https://i.ibb.co/8dWggZf/IMG-8730.jpg" alt="IMG-8730" border="0"></a>
 
+
+## Wireframing
+
+
+
+## User Stories
+
+
+## Improvements/Considerations
 
 
 ## Available Scripts

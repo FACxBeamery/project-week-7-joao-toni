@@ -125,7 +125,7 @@ const FormField = ({
 	return (
 		<div className={styles["form-field"]}>
 			<label className={styles.label} htmlFor={label}>
-				{title}*{input}
+				{`${title}*`}{input}
 			</label>
 			{errors[label] ? (
 				<p className={styles["warning"]}>{errorMessage} </p>

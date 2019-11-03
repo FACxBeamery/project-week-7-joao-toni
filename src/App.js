@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import LandingPage from "./components/LandingPage";
-import OverviewPage from "./components/OverviewPage";
-import AdminPage from "./components/AdminPage";
+import LandingPage from "./pages/LandingPage";
+import OverviewPage from "./pages/OverviewPage";
+import AdminPage from "./pages/AdminPage";
 
 import styles from "./App.module.css";
 

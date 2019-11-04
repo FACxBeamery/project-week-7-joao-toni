@@ -2,7 +2,7 @@
 
 > This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-![Landing page screenshot](/landingpage.png?raw=true "Optional Title")
+![Landing page screenshot](/frontend/landingpage.png?raw=true "Optional Title")
 
 ## Overview
 
@@ -86,6 +86,10 @@ As a DEVELOPER I need to WRITE HIGH QUALITY CODE so that OTHER PEOPLE AND MY FUT
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `docker-compose build`
+
+### `docker-compose up`
 
 ### `npm start`
 

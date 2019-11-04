@@ -67,8 +67,8 @@ As a DEVELOPER I need to WRITE HIGH QUALITY CODE so that OTHER PEOPLE AND MY FUT
 - [x] Variable and function names are descriptive (they don't need to be concise, they do need to be helpful)
 - [x] Code is (mostly) self documenting
 - [x] Team code standards are followed
-- [x] No eslint errors (although where necessary errors may be commented out if the reason can be justified)
-- [x] Logic tests make it clear what is being checked
+- [ ] No eslint errors (although where necessary errors may be commented out if the reason can be justified)
+- [ ] Logic tests make it clear what is being checked
 
 ## Improvements/Considerations
 
@@ -76,6 +76,12 @@ As a DEVELOPER I need to WRITE HIGH QUALITY CODE so that OTHER PEOPLE AND MY FUT
 - Improve integration testing.
 - Test coverage command should maybe consider ignoring components that we are not able to do integration tests with
 - Backend will be added. Mock-api calls will have to be removed and consequently the code will be refactored.
+
+## After the demo...
+- [ ] No eslint errors (although where necessary errors may be commented out if the reason can be justified)
+- [ ] Logic tests make it clear what is being checked
+- [ ] Set up a config file/command for jest
+
 
 ## Available Scripts
 

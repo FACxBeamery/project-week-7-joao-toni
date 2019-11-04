@@ -1,6 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import UpNext from "./UpNext";
+import { act } from "react-dom/test-utils";
 
 const tasksData = {
 	Monday: [
@@ -70,8 +71,9 @@ const tasksData = {
 
 describe("Testing the UpNext component", () => {
 	test("UpNext renders in progress as default", () => {
-        const { getByText } = render(<UpNext 
-            tasksData={tasksData}/>);
-        getByText("Up Next")
+		act(() => {
+			const { getByText } = render(<UpNext tasksData={tasksData} />);
+			getByText("Up Next");
+		});
 	});
 });

@@ -5,9 +5,7 @@ import TaskOverviewRow from "./TaskOverviewRow";
 import Button from "../Button";
 import Header from "../Header";
 
-import {getDayName} from "../../utils/getDayName"
-
-
+import { getDayName } from "../../utils/getDayName";
 
 const FilterComplete = ({ isFiltered, setIsFiltered }) => {
 	return (
@@ -52,7 +50,7 @@ const TaskOverviewList = ({ tasksData, setTasksData }) => {
 		/>
 	);
 
-	const expandedList = () => {
+	const ExpandedList = () => {
 		let allDays = Object.keys(tasksData);
 
 		return allDays.map((day, index) => (
@@ -75,7 +73,7 @@ const TaskOverviewList = ({ tasksData, setTasksData }) => {
 		));
 	};
 
-	const nonExpandedList = () => {
+	const NonExpandedList = () => {
 		let date = new Date();
 		let curDay = getDayName(date.getDay());
 
@@ -93,7 +91,7 @@ const TaskOverviewList = ({ tasksData, setTasksData }) => {
 	};
 
 	//Conditionals
-	const tasksListType = isExpanded ? expandedList() : nonExpandedList();
+	const tasksListType = isExpanded ? <ExpandedList /> : <NonExpandedList />;
 	const matchListButton = isExpanded ? shrinkListButton : expandListButton;
 
 	return (

@@ -4,28 +4,34 @@ import styles from "./Progress.module.css";
 import ProgressWheel from "./ProgressWheel";
 
 const Progress = ({ tasksData }) => {
-	const [totalProg, setTotalProg] = useState(0);
-	const [totalComp, setTotalComp] = useState(0);
-	const total = totalProg + totalComp;
+	const [totalProgressCount, setTotalProgressCount] = useState(0);
+	const [totalCompletedCount, setTotalCompletedCount] = useState(0);
+
+	const total = totalProgressCount + totalCompletedCount;
 
 	useEffect(() => {
 		let days = Object.keys(tasksData);
-		let tempTotalProg = 0;
-		let tempTotalComp = 0;
+		let tempTotalProgressCount = 0;
+		let tempTotalCompleteCount = 0;
 
 		days.forEach((day) => {
 			if (tasksData[day].length)
 				tasksData[day].forEach((task) => {
-					if (task.progress === "inprogress") tempTotalProg++;
-					else if (task.progress === "complete") tempTotalComp++;
+					// conditionals
+					const taskProgressIsInprogress =
+						task.progress === "inprogress";
+					const taskProgressIsComplete = task.progress === "complete";
+
+					if (taskProgressIsInprogress) tempTotalProgressCount++;
+					else if (taskProgressIsComplete) tempTotalCompleteCount++;
 				});
 		});
 
-		setTotalProg(tempTotalProg);
-		setTotalComp(tempTotalComp);
+		setTotalProgressCount(tempTotalProgressCount);
+		setTotalCompletedCount(tempTotalCompleteCount);
 	}, [tasksData]);
 
-	const percentage = Math.ceil((totalComp / total) * 100);
+	const percentage = Math.ceil((totalCompletedCount / total) * 100);
 
 	return (
 		<section className={styles.progress}>

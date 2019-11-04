@@ -35,13 +35,25 @@ const TaskCard = ({
 	isFiltered = false
 }) => {
 	// Consts
-	const [typeProg, typeComp] = ["inprogress", "complete"];
-	const [type, setType] = useState(typeProg);
+	const [taskTypeInprogress, taskTypeComplete] = ["inprogress", "complete"];
+	const [cardTaskType, setCardTaskType] = useState(taskTypeInprogress);
+
+	// conditionals
+	const taskProgressIsInprogress = progress === taskTypeInprogress;
+	const taskProgressIsComplete = progress === taskTypeComplete;
 
 	useEffect(() => {
-		if (progress === typeProg || progress === typeComp) setType(progress);
-		else setType(typeProg);
-	}, [progress, setType, typeProg, typeComp]);
+		if (taskProgressIsInprogress || taskProgressIsComplete)
+			setCardTaskType(progress);
+		else setCardTaskType(taskTypeInprogress);
+	}, [
+		progress,
+		setCardTaskType,
+		taskTypeInprogress,
+		taskTypeComplete,
+		taskProgressIsInprogress,
+		taskProgressIsComplete
+	]);
 
 	// handleClick
 	// TODO update with mongodb call to update data
@@ -49,18 +61,18 @@ const TaskCard = ({
 		let newData = { progress: newType };
 
 		setTasksData(updateTask(id, day, newData, tasksData));
-		setType(newType);
+		setCardTaskType(newType);
 	};
 
 	// Conditionals
-	const typeIsProg = type === typeProg;
+	const cardTypeIsInprogress = cardTaskType === taskTypeInprogress;
 
-	const btnText = typeIsProg ? "Mark as complete" : "Re-open task";
-	const btnCategory = typeIsProg ? "primary" : "accent";
+	const btnText = cardTypeIsInprogress ? "Mark as complete" : "Re-open task";
+	const btnCategory = cardTypeIsInprogress ? "primary" : "accent";
 
-	const handleClick = typeIsProg
-		? () => handleChangeTypeToClick(typeComp)
-		: () => handleChangeTypeToClick(typeProg);
+	const handleClick = cardTypeIsInprogress
+		? () => handleChangeTypeToClick(taskTypeComplete)
+		: () => handleChangeTypeToClick(taskTypeInprogress);
 
 	const Header = () => <h1>{title}</h1>;
 	const SubHeader = () => (
@@ -95,7 +107,7 @@ const TaskCard = ({
 					styles["content-wrapper__right"]
 				}`}
 			>
-				<Badge type={type} />
+				<Badge type={cardTaskType} />
 				<ProfileArea {...taskWith} />
 			</div>
 		</div>

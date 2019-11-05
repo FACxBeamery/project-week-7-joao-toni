@@ -11,11 +11,13 @@ const Header = ({
 	const headerIsLarge = size === "large";
 	const HeaderTag = headerIsLarge ? "h1" : "h2";
 
+	const isCentered = `${centered && styles.centered}`;
+	const isSans = `${sans && styles.sans}`;
+	const isHighlighted = `${highlighted && styles[text.toLowerCase()]}`;
+
 	return (
 		<HeaderTag
-			className={`${styles[size]} ${highlighted &&
-				styles[text.toLowerCase()]} ${sans && styles.sans} ${centered &&
-				styles.centered}`}
+			className={`${styles[size]} ${isHighlighted} ${isSans} ${isCentered}`}
 		>
 			{text}
 		</HeaderTag>

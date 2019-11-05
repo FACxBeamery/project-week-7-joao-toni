@@ -2,36 +2,24 @@ import React from "react";
 import styles from "./Header.module.css";
 
 const Header = ({
-    size = "medium",
-    text,
-    sans = false,
-    highlighted = "no",
-    centered = false
+	size = "medium",
+	text,
+	sans = false,
+	highlighted = false,
+	centered = false
 }) => {
-    let header;
+	const headerIsLarge = size === "large";
+	const HeaderTag = headerIsLarge ? "h1" : "h2";
 
-    if (size === "large") {
-        header = (
-            <h1
-                className={`${styles.large} ${
-                    highlighted === "yes" ? styles[text.toLowerCase()] : ""
-                } ${centered ? styles.centered : ""}`}
-            >
-                {text}
-            </h1>
-        );
-    } else if (size === "medium") {
-        header = (
-            <h2
-                className={`${styles.medium} ${sans ? styles.sans : ""} ${
-                    highlighted === "yes" ? styles[text.toLowerCase()] : ""
-                } ${centered ? styles.centered : ""}`}
-            >
-                {text}
-            </h2>
-        );
-    }
-    return <>{header}</>;
+	return (
+		<HeaderTag
+			className={`${styles[size]} ${highlighted &&
+				styles[text.toLowerCase()]} ${sans && styles.sans} ${centered &&
+				styles.centered}`}
+		>
+			{text}
+		</HeaderTag>
+	);
 };
 
 export default Header;

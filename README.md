@@ -2,7 +2,7 @@
 
 > This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-![Landing page screenshot](/frontend/landingpage.png?raw=true "Optional Title")
+![Landing page screenshot](/client/landingpage.png?raw=true "Optional Title")
 
 ## Overview
 

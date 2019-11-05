@@ -5,7 +5,7 @@ const Header = ({
 	size = "medium",
 	text,
 	sans = false,
-	highlighted = false,
+	weekday = false,
 	centered = false
 }) => {
 	const headerIsLarge = size === "large";
@@ -13,13 +13,16 @@ const Header = ({
 
 	const isCentered = `${centered && styles.centered}`;
 	const isSans = `${sans && styles.sans}`;
-	// if highlighted is true, it is a header that represents a day of the week
-	// the header'stext can be Monday, Tuesday, Wednesday, ...
-	const isHighlighted = `${highlighted && styles[text.toLowerCase()]}`;
+
+	let dayStyle;
+	if (weekday) {
+		const dayName = text.toLowerCase();
+		dayStyle = `${styles[dayName]}`;
+	}
 
 	return (
 		<HeaderTag
-			className={`${styles[size]} ${isHighlighted} ${isSans} ${isCentered}`}
+			className={`${styles[size]} ${dayStyle} ${isSans} ${isCentered}`}
 		>
 			{text}
 		</HeaderTag>

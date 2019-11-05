@@ -55,7 +55,7 @@ const TaskOverviewList = ({ tasksData, setTasksData }) => {
 
 		return allDays.map((day, index) => (
 			<div key={`${day}_${index}`}>
-				<Header text={day} key={`${day}_${index}`} highlighted={true} />
+				<Header text={day} key={`${day}_${index}`} weekday={true} />
 				<TaskOverviewRow
 					key={day}
 					dayName={day}

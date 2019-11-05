@@ -78,8 +78,8 @@ As a DEVELOPER I need to WRITE HIGH QUALITY CODE so that OTHER PEOPLE AND MY FUT
 - Backend will be added. Mock-api calls will have to be removed and consequently the code will be refactored.
 
 ## After the demo...
-- [ ] No eslint errors (although where necessary errors may be commented out if the reason can be justified)
-- [ ] Logic tests make it clear what is being checked
+- [x] No eslint errors (although where necessary errors may be commented out if the reason can be justified)
+- [x] Logic tests make it clear what is being checked
 - [ ] Set up a config file/command for jest
 
 

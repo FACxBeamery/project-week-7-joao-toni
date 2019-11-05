@@ -91,6 +91,9 @@ In the project directory, you can run:
 
 ### `docker-compose up`
 
+### `docker-compose -f docker-compose.yml up --build`
+
+
 ### `npm start`
 
 Runs the app in the development mode.<br />

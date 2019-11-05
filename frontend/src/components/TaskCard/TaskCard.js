@@ -4,6 +4,7 @@ import styles from "./TaskCard.module.css";
 import Button from "../Button";
 import Badge from "../Badge";
 import ProfileArea from "../ProfileArea";
+import Header from "../Header";
 
 const updateTask = (id, day, toUpdateData = {}, tasksData) => {
 	// TODO update data through API call rather than dummyData
@@ -74,7 +75,6 @@ const TaskCard = ({
 		? () => handleChangeTypeToClick(taskTypeComplete)
 		: () => handleChangeTypeToClick(taskTypeInprogress);
 
-	const Header = () => <h1>{title}</h1>;
 	const SubHeader = () => (
 		<p className={styles["sub-header"]}>Due by: {time}</p>
 	);
@@ -87,7 +87,7 @@ const TaskCard = ({
 				} `}
 			>
 				<div className={styles.header}>
-					{<Header />}
+					<Header text={title} />
 					{<SubHeader />}
 				</div>
 				<div className={styles.description}>

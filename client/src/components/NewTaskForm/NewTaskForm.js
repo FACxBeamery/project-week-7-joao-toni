@@ -3,12 +3,12 @@ import React from "react";
 import Header from "../Header";
 import Form from "../Form";
 
-const NewEventForm = () => {
+const NewTaskForm = () => {
     return (
         <header>
             <Header
                 size={"large"}
-                text={"🗓 Add new first week event 🗓"}
+                text={"🗓 Add new first week task 🗓"}
                 centered={true}
             />
             <Form />
@@ -16,4 +16,4 @@ const NewEventForm = () => {
     );
 };
 
-export default NewEventForm;
+export default NewTaskForm;

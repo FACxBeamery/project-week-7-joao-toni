@@ -9,9 +9,9 @@ const AdminActions = ({ setShowAction }) => {
         <div className={styles.actions}>
             <Header size={"medium"} text={"Actions Available"} />
             <Button
-                onClick={e => setShowAction("addevent")}
+                onClick={e => setShowAction("addTask")}
                 category="outlined"
-                buttonText={"Create a new first-week event 🗓"}
+                buttonText={"Create a new first-week task 🗓"}
             />
         </div>
     );

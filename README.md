@@ -6,7 +6,7 @@
 
 ## Overview
 
-We have built a web app that helps a new Beamery starter on their first week by tracking their on-boarding events.  
+We have built a web app that helps a new Beamery starter on their first week by tracking their on-boarding task events.  
 
 
 ## 'Product' design burst

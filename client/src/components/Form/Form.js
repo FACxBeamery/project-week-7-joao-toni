@@ -9,27 +9,29 @@ import { areAllObjPropsFalse } from "../../utils/areAllObjPropsFalse";
 const Form = () => {
     const [inputs, setInputs] = useState({});
     const [errors, setErrors] = useState({
-        eventDescription: undefined,
-        eventWeekDay: undefined,
-        eventHost: undefined,
-        eventTime: undefined,
-        eventTitle: undefined
+        taskDescription: undefined,
+        taskWeekDay: undefined,
+        taskHostName: undefined,
+        taskHostTitle: undefined,
+        taskTime: undefined,
+        taskTitle: undefined
     });
     const [validForm, setValidForm] = useState(false);
     const [submitted, setSubmitted] = useState(false);
     const formFields = [
-        { label: "eventTitle", title: "Title of the event" },
-        { label: "eventDescription", title: "Description", type: "textarea" },
-        { label: "eventHost", title: "Who's the host?" },
+        { label: "taskTitle", title: "Title of the task" },
+        { label: "taskDescription", title: "Description", type: "textarea" },
+        { label: "taskHostName", title: "Who's the host?" },
+        { label: "taskHostTitle", title: "What's their title?" },
         {
-            label: "eventWeekDay",
+            label: "taskWeekDay",
             title: "Day of the week",
             type: "select",
             options: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
         },
         {
-            label: "eventTime",
-            title: "Time of the event (HH:MM)",
+            label: "taskTime",
+            title: "Time of the task (HH:MM)",
             regex: true,
             errorMessage:
                 "This field is required and needs to be on the following format HH:MM, e.g. 12:00, 01:00, etc"
@@ -51,7 +53,7 @@ const Form = () => {
 
     return submitted ? (
         <SuccessMessage
-            message={"Event added successfully"}
+            message={"Task added successfully"}
             emoji={"✅"}
             emojiNotifier={"tick emoji"}
         />
@@ -77,7 +79,7 @@ const Form = () => {
                 <Button
                     type="submit"
                     size={"medium"}
-                    buttonText={"Add new event"}
+                    buttonText={"Add new task"}
                     isActive={validForm}
                     onClick={handleSubmit}
                 />

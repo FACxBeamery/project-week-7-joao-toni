@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import NewEventForm from "../../components/NewEventForm";
+import NewTaskForm from "../../components/NewTaskForm";
 import Button from "../../components/Button";
 import Header from "../../components/Header";
 import AdminActions from "../../components/AdminActions";
 
 const AdminPage = ({ setView }) => {
     const [showAction, setShowAction] = useState("");
-    let isAddingEvent = showAction === "addevent";
+    let isAddingTask = showAction === "addTask";
     return (
         <div>
             <Button
@@ -16,7 +16,7 @@ const AdminPage = ({ setView }) => {
             />
             <Header text={"Admin - settings"} size={"large"} />
             {isAddingEvent ? (
-                <NewEventForm />
+                <NewTaskForm />
             ) : (
                 <AdminActions setShowAction={setShowAction} />
             )}

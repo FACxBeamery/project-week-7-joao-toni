@@ -1,34 +1,35 @@
 import React from "react";
 import { render, fireEvent, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import NewEventForm from "./NewEventForm";
+import NewTaskForm from "./NewTaskForm";
 
 afterEach(cleanup);
 
 describe("Testing the Form component", () => {
-    const { getByLabelText, getByText } = render(<NewEventForm />);
-    const eventTitleNode = getByLabelText("Title of the event*");
+    const { getByLabelText, getByText } = render(<NewTaskForm />);
+    const taskTitleNode = getByLabelText("Title of the task*");
     const descriptionNode = getByLabelText("Description*");
     const hostNode = getByLabelText("Who's the host?*");
-    const buttonFormNode = getByText("Add new event");
+    const hostTitleNode = getByLabelText("What's their title?*");
+    const buttonFormNode = getByText("Add new task");
     test("input borders should change from red to green border colour", () => {
-        expect(eventTitleNode).toHaveClass("input");
-        fireEvent.change(eventTitleNode, {
+        expect(taskTitleNode).toHaveClass("input");
+        fireEvent.change(taskTitleNode, {
             target: { value: " " }
         });
-        expect(eventTitleNode).toHaveClass("redborder");
+        expect(taskTitleNode).toHaveClass("redborder");
 
-        fireEvent.change(eventTitleNode, {
+        fireEvent.change(taskTitleNode, {
             target: { value: "sdfsdf" }
         });
-        expect(eventTitleNode).toHaveClass("greenborder");
+        expect(taskTitleNode).toHaveClass("greenborder");
         expect(buttonFormNode).toHaveClass("inactive");
     });
     test("form fields should be filled with user input", () => {
-        fireEvent.change(eventTitleNode, {
+        fireEvent.change(taskTitleNode, {
             target: { value: " " }
         });
-        fireEvent.change(eventTitleNode, {
+        fireEvent.change(taskTitleNode, {
             target: { value: "aushdui " }
         });
         fireEvent.change(descriptionNode, {
@@ -44,7 +45,7 @@ describe("Testing the Form component", () => {
             target: { value: "aushdui " }
         });
 
-        expect(eventTitleNode.value).toBe("aushdui ");
+        expect(taskTitleNode.value).toBe("aushdui ");
         expect(descriptionNode.value).toBe("aushdui ");
         expect(hostNode.value).toBe("aushdui ");
     });

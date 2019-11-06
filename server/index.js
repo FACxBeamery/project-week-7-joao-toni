@@ -91,10 +91,10 @@ initDb()
 
         let db = getDb();
 
-        db.collection("tasks").drop((err, delOK) => {
-            if (err) throw err;
-            if (delOK) console.log("Collection deleted");
-        });
+        // db.collection("tasks").drop((err, delOK) => {
+        //     if (err) throw err;
+        //     if (delOK) console.log("Collection deleted");
+        // });
 
 
         seed.map(async (task) => {
@@ -108,6 +108,9 @@ initDb()
                 console.error(err);
             }
         });
+
+        db.collection("tasks").find({}).toArray((err, docs) => console.log(docs)
+        );
 
         app.listen(port, () => {
             console.log(`Server listening on port ${port}. Ready to accept requests!`);

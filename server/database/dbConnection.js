@@ -3,13 +3,13 @@ const mongo = require("mongodb").MongoClient;
 let _db;
 let _client;
 
-let dbUrl;
+// let dbUrl;
 
-if (process.env.NODE_ENV === "development") {
-    dbUrl = process.env.MONGO_URI_TEST || "mongodb://db:27017/test";
-} else {
-    dbUrl = process.env.MONGO_URI || "mongodb://db:27017/db";
-}
+// if (process.env.NODE_ENV === "development") {
+//     dbUrl = process.env.MONGO_URI_TEST || "mongodb://db:27017/test";
+// } else {
+//     dbUrl = process.env.MONGO_URI || "mongodb://db:27017/db";
+// }
 
 const dbConfig = { useNewUrlParser: true, useUnifiedTopology: true };
 
@@ -30,7 +30,7 @@ const initDb = () => {
             resolve(_db);
         }
 
-        mongo.connect(dbUrl, dbConfig, connected);
+        mongo.connect("mongodb://db:27017/db", dbConfig, connected);
     });
 };
 

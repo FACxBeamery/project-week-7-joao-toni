@@ -15,7 +15,7 @@ const AdminPage = ({ setView }) => {
                 buttonText={"< Go back to main menu"}
             />
             <Header text={"Admin - settings"} size={"large"} />
-            {isAddingEvent ? (
+            {isAddingTask ? (
                 <NewTaskForm />
             ) : (
                 <AdminActions setShowAction={setShowAction} />

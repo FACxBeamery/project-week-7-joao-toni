@@ -1,5 +1,5 @@
 const express = require("express");
-const formidable = require("express-formidable");
+// const formidable = require("express-formidable");
 const router = require("./router.js");
 const initDb = require("./database/dbConnection").initDb;
 const getDb = require("./database/dbConnection").getDb;
@@ -82,7 +82,7 @@ let seed = [
 
 const app = express();
 const port = process.env.PORT || 3000;
-app.use(formidable());
+// app.use(formidable());
 
 app.use(router);
 

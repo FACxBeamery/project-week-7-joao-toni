@@ -10,7 +10,7 @@ const taskSchema =
             name: Joi.string().required(),
             title: Joi.string().required()
         }),
-        progress: Joi.string().required()
+        progress: Joi.string().pattern(/(inprogress|complete)/).required()
     }); 
 
 module.exports = taskSchema;

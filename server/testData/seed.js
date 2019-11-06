@@ -1,10 +1,3 @@
-const express = require("express");
-// const formidable = require("express-formidable");
-const router = require("./router.js");
-const initDb = require("./database/dbConnection").initDb;
-const getDb = require("./database/dbConnection").getDb;
-
-
 let seed = [
     {
         title: "Beamery Product intro meeting",
@@ -80,40 +73,4 @@ let seed = [
 
 ];
 
-const app = express();
-const port = process.env.PORT || 3000;
-// app.use(formidable());
-
-app.use(router);
-
-initDb()
-    .then(() => {
-
-        let db = getDb();
-
-        // db.collection("tasks").drop((err, delOK) => {
-        //     if (err) throw err;
-        //     if (delOK) console.log("Collection deleted");
-        // });
-
-
-        seed.map(async (task) => {
-            try {
-                await db.collection("tasks").insertOne(task, (err, result) => {
-                    if (err) throw (err);
-                    return (result);
-                });
-            }
-            catch (err) {
-                console.error(err);
-            }
-        });
-
-        db.collection("tasks").find({}).toArray((err, docs) => console.log(docs)
-        );
-
-        app.listen(port, () => {
-            console.log(`Server listening on port ${port}. Ready to accept requests!`);
-        });
-    })
-    .catch(console.error);
+module.export = seed;

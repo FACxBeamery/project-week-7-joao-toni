@@ -1,20 +1,8 @@
 const express = require("express");
-const addTask = require("./handlers/addTask.js");
-const taskValidator = require("./middleware/taskValidator");
+const getTasks = require("./handlers/getTasks.js");
 
 const router = express();
 
-router.use(express.static("public"));
-
-
-// router.get("/tasks", getTasks);
-
-// router.post("/tasks", addTask);
-
-// app.get("/users", taskValidator, createTask); 
-
-router.post("/tasks", taskValidator,addTask);
-
-router.patch("/tasks", editQuestion);
+router.get("/tasks", getTasks);
 
 module.exports = router;

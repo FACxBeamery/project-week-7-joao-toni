@@ -11,13 +11,15 @@
     "license": "ISC",
     "dependencies": {
         "@hapi/boom": "^8.0.1",
-        "eslint": "^6.6.0",
         "express": "^4.17.1",
+        "express-formidable": "^1.2.0",
         "http-errors": "^1.7.3",
         "joi": "^14.3.1",
-        "mongoose": "^5.7.7",
         "pino": "^5.13.5",
         "pino-http": "^4.3.0",
         "pino-pretty": "^3.3.0"
+    },
+    "devDependencies": {
+        "eslint": "^6.6.0"
     }
 }

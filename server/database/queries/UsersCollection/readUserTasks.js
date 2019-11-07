@@ -4,30 +4,34 @@ const readTask = require("../readTask");
 
 const readUserTasks = (users, findByUserId, tasks) => {
     return new Promise((resolve, reject) => {
-        users.findOne(findByUserId, (err, result) => {
+        users.findOne(findByUserId, async (err, result) => {
             if (err) reject(err);
 
             let days = Object.keys(result.tasks);
 
-            result.tasks = days.map(day => {
-                let updatedTasksForDay = result.tasks[day]
-                    .map(task => {
-                        return readTask(tasks, { _id: new ObjectId(task.taskId) })
+            let updatedTasks = await days.reduce(
+                async (previousBatch, currentDay, index) => {
+                    previousBatch = await previousBatch;
+                    console.log();
+
+                    console.log(`Processing batch ${index}...`);
+
+                    const currentDayPromises = result.tasks[currentDay]
+                        .map(task => readTask(tasks, { _id: new ObjectId(task.taskId) })
                             .then((taskResult) => {
                                 let updatedUserTask = { ...taskResult[0], ...task };
                                 return updatedUserTask;
                             })
-                            .catch((err) => console.error(err));
-                    });
+                            .catch((err) => console.error(err)));
 
-                console.log(updatedTasksForDay);
+                    const promisesResult = await Promise.all(currentDayPromises);
+                    console.log(promisesResult);
+                    return { ...previousBatch, [currentDay]: promisesResult };
+                }, Promise.resolve());
 
+            console.log(updatedTasks);
 
-                return Promise.all(updatedTasksForDay).then(() => updatedTasksForDay);
-
-            });
-
-            Promise.all(result.tasks).then(() => resolve(result.tasks));
+            resolve(updatedTasks);
 
         });
     });

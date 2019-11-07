@@ -3,6 +3,6 @@ const getTasks = require("./handlers/getTasks.js");
 
 const router = express();
 
-router.get("/getTasks", getTasks);
+router.get("/tasks", getTasks);
 
 module.exports = router;

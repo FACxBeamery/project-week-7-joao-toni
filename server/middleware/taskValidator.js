@@ -13,7 +13,6 @@ const taskValidator = (useJoiError) => {
 
     // return the validation middleware
     return (req, res, next) => {
-
         if (taskSchema && req.body) {
 
             // Validate req.body using the schema and validation options
@@ -45,13 +44,14 @@ const taskValidator = (useJoiError) => {
                     res.status(422).json(useJoiError? joiError : customError);
 
                 } else {
+                    
                     // Replace req.body with the data after Joi validation
                     req.body = data;
                     next();
                 }
             });
         }
-        next();
+        // next();
     };
 };
 

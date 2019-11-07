@@ -6,14 +6,16 @@ const bodyParser = (req, res, next) => {
         });
         req.on("end", () => {
             try {
-             
-                
+
+
                 req.body = JSON.parse(allTheData);
             } catch (err) {
                 next();
             }
             next();
         });
+    } else {
+        next();
     }
 };
 

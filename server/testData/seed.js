@@ -7,7 +7,6 @@ const seed = [
             name: "John Doe",
             title: "Grad Manager"
         },
-        progress: "inprogress",
         dayOfTheWeek: "Monday"
     },
     {
@@ -19,7 +18,6 @@ const seed = [
             name: "John Doe",
             title: "Grad Manager"
         },
-        progress: "inprogress",
         dayOfTheWeek: "Monday"
     },
     {
@@ -31,7 +29,6 @@ const seed = [
             name: "John Doe",
             title: "Grad Manager"
         },
-        progress: "inprogress",
         dayOfTheWeek: "Wednesday"
     },
     {
@@ -43,7 +40,6 @@ const seed = [
             name: "John Doe",
             title: "Grad Manager"
         },
-        progress: "inprogress",
         dayOfTheWeek: "Thursday"
     },
     {
@@ -55,7 +51,6 @@ const seed = [
             name: "John Doe",
             title: "Grad Manager"
         },
-        progress: "inprogress",
         dayOfTheWeek: "Friday"
     },
     {
@@ -67,7 +62,6 @@ const seed = [
             name: "John Doe",
             title: "Grad Manager"
         },
-        progress: "inprogress",
         dayOfTheWeek: "Monday"
     },
 ];

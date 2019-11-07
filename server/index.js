@@ -4,7 +4,6 @@ const router = require("./router.js");
 const initDb = require("./database/dbConnection").initDb;
 const getDb = require("./database/dbConnection").getDb;
 
-
 let seed = [
     {
         title: "Beamery Product intro meeting",
@@ -12,7 +11,7 @@ let seed = [
         time: "09:00",
         taskWith: {
             name: "John Doe",
-            position: "Grad Manager"
+            title: "Grad Manager"
         },
         progress: "inprogress",
         dayOfTheWeek: "Monday"
@@ -24,7 +23,7 @@ let seed = [
         time: "11:00",
         taskWith: {
             name: "John Doe",
-            position: "Grad Manager"
+            title: "Grad Manager"
         },
         progress: "inprogress",
         dayOfTheWeek: "Monday"
@@ -36,7 +35,7 @@ let seed = [
         time: "09:00",
         taskWith: {
             name: "John Doe",
-            position: "Grad Manager"
+            title: "Grad Manager"
         },
         progress: "inprogress",
         dayOfTheWeek: "Wednesday"
@@ -48,7 +47,7 @@ let seed = [
         time: "13:00",
         taskWith: {
             name: "John Doe",
-            position: "Grad Manager"
+            title: "Grad Manager"
         },
         progress: "inprogress",
         dayOfTheWeek: "Thursday"
@@ -60,7 +59,7 @@ let seed = [
         time: "15:00",
         taskWith: {
             name: "John Doe",
-            position: "Grad Manager"
+            title: "Grad Manager"
         },
         progress: "inprogress",
         dayOfTheWeek: "Friday"
@@ -72,7 +71,7 @@ let seed = [
         time: "10:00",
         taskWith: {
             name: "John Doe",
-            position: "Grad Manager"
+            title: "Grad Manager"
         },
         progress: "inprogress",
         dayOfTheWeek: "Monday"
@@ -82,19 +81,40 @@ let seed = [
 
 const app = express();
 const port = process.env.PORT || 3000;
-// app.use(formidable());
+
+const bodyParser = (req, res, next) => {
+    if (req.method === "POST") {
+        let allTheData = "";
+        req.on("data", chunk => {
+            allTheData += chunk;
+        });
+        req.on("end", () => {
+            try {
+             
+                
+                req.body = JSON.parse(allTheData);
+            } catch (err) {
+                next();
+            }
+            next();
+        });
+    }
+};
+
+app.use(bodyParser);
 
 app.use(router);
+
 
 initDb()
     .then(() => {
 
         let db = getDb();
 
-        // db.collection("tasks").drop((err, delOK) => {
-        //     if (err) throw err;
-        //     if (delOK) console.log("Collection deleted");
-        // });
+        db.collection("tasks").drop((err, delOK) => {
+            if (err) throw err;
+            if (delOK) console.log("Collection deleted");
+        });
 
 
         seed.map(async (task) => {

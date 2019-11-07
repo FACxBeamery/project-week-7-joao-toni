@@ -6,7 +6,7 @@ const createTask = async (req, res) => {
     
     try {        
         await addTask(db.collection("tasks"), req.body);
-        res.status(201).end();
+        res.status(201).send("New Task added successfully");
 
     } catch(err) {
         res.status(404).json(err.message);

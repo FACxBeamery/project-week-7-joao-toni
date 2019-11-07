@@ -3,6 +3,7 @@ import FormField from "./FormField";
 import Button from "../Button/Button";
 import styles from "./Form.module.css";
 import SuccessMessage from "../SuccessMessage";
+import axios from 'axios';
 
 import { areAllObjPropsFalse } from "../../utils/areAllObjPropsFalse";
 
@@ -37,12 +38,30 @@ const Form = () => {
                 "This field is required and needs to be on the following format HH:MM, e.g. 12:00, 01:00, etc"
         }
     ];
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         if (e) {
             e.preventDefault();
             let doesNotHaveErrors = areAllObjPropsFalse(errors);
             if (doesNotHaveErrors) {
-                setSubmitted(true);
+                
+                const newTaskData = {
+                    title: inputs.taskTitle,
+                    description: inputs.taskDescription,
+                    time: inputs.taskTime,
+                    taskWith: {
+                        name: inputs.taskHostName,
+                        title: inputs.taskHostTitle,
+                    },
+                    progress: "inprogress",
+                    dayOfTheWeek: inputs.taskWeekDay
+                }
+                try {
+                    const response = await axios.post("/tasks", newTaskData);
+                    setSubmitted(true);
+                } catch(err) {
+                    console.log(err);
+                    
+                }
             }
         }
     };

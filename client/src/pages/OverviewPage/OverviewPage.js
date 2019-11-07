@@ -5,17 +5,27 @@ import UpNext from "../../components/UpNext";
 import Button from "../../components/Button";
 import styles from "./OverviewPage.module.css";
 
-import TaskOverviewList from "../../components/TaskOverviewList";
+import axios from "axios";
 
-// TODO remove import after API implementation
-import { getTasks } from "../../utils/getTasks";
+import TaskOverviewList from "../../components/TaskOverviewList";
 
 const OverviewPage = ({ setView }) => {
     const [tasksData, setTasksData] = useState({});
 
     useEffect(() => {
         // TODO api implementation
-        getTasks().then(data => setTasksData(data));
+        async function getUsers() {
+            let result = await axios.get("/users");
+            getTasks(result.data[0]._id)
+            
+        }
+        async function getTasks(userId) {
+            let result = await axios.get(`users/${userId}`);
+            console.log(result);
+            setTasksData(result.data);
+            
+        }
+        getUsers();
     }, [setTasksData]);
 
     return (

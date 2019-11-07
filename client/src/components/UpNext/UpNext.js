@@ -13,7 +13,6 @@ const UpNext = ({ tasksData }) => {
 	useEffect(() => {
 		getMostRecent()
 			.then((data) => {
-				console.log(data);
 
 				setNextTask(data);
 				setEmployeeName(data.taskWith);

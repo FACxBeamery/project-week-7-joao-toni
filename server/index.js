@@ -3,36 +3,15 @@ const express = require("express");
 const router = require("./router.js");
 const initDb = require("./database/dbConnection").initDb;
 const getDb = require("./database/dbConnection").getDb;
-const { seed, addSeedData } = require("./testData/seed.js");
+const { addSeedData } = require("./testData/seed.js");
 
 // console.log(seed);
-
 
 const app = express();
 const port = process.env.PORT || 4000;
 
-const bodyParser = (req, res, next) => {
-    if (req.method === "POST") {
-        let allTheData = "";
-        req.on("data", chunk => {
-            allTheData += chunk;
-        });
-        req.on("end", () => {
-            try {
-
-
-                req.body = JSON.parse(allTheData);
-            } catch (err) {
-                next();
-            }
-            next();
-        });
-    }
-};
-
-app.use(bodyParser);
-
 app.use(router);
+router.get("/tasks", () => console.log("r"));
 
 
 initDb()

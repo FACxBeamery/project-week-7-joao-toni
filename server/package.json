@@ -16,6 +16,7 @@
         "http-errors": "^1.7.3",
         "joi": "^14.3.1",
         "mongodb": "^3.3.3",
+        "nodemon": "^1.19.4",
         "pino": "^5.13.5",
         "pino-http": "^4.3.0",
         "pino-pretty": "^3.3.0",

@@ -13,8 +13,7 @@ const bodyParser = require("./middleware/bodyParser");
 const router = express();
 
 router.get("/tasks", getTasks);
-router.post("/tasks", [taskValidator(true), bodyParser], createTask);
-
+router.post("/tasks", [taskValidator(true), bodyParser], createTask); 
 router.get("/users", getUsers);
 router.get("/users/:id", getUserTasks);
 router.post("/addUser", createUser);

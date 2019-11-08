@@ -20,6 +20,7 @@
         "pino": "^5.13.5",
         "pino-http": "^4.3.0",
         "pino-pretty": "^3.3.0",
+        "supertest": "^4.0.2",
         "tap-spec": "^5.0.0",
         "tape": "^4.11.0"
     },

@@ -1,68 +1,68 @@
 const seed = [
     {
-        title: "Beamery Product intro meeting",
-        description: "Get to know more about the product",
-        time: "09:00",
-        taskWith: {
-            name: "John Doe",
-            title: "Grad Manager"
+        "title": "Beamery Product intro meeting",
+        "description": "Get to know more about the product",
+        "time": "09:00",
+        "taskWith": {
+            "name": "John Doe",
+            "title": "Grad Manager"
         },
-        dayOfTheWeek: "Monday"
+        "dayOfTheWeek": "Monday"
     },
     {
 
-        title: "Meet the team",
-        description: "Say hi to Engage",
-        time: "11:00",
-        taskWith: {
-            name: "John Doe",
-            title: "Grad Manager"
+        "title": "Meet the team",
+        "description": "Say hi to Engage",
+        "time": "11:00",
+        "taskWith": {
+            "name": "John Doe",
+            "title": "Grad Manager"
         },
-        dayOfTheWeek: "Monday"
+        "dayOfTheWeek": "Monday"
     },
     {
 
-        title: "Employee Handbook Reading",
-        description: "Learn about Beamery's policies and your perks",
-        time: "09:00",
-        taskWith: {
-            name: "John Doe",
-            title: "Grad Manager"
+        "title": "Employee Handbook Reading",
+        "description": "Learn about Beamery's policies and your perks",
+        "time": "09:00",
+        "taskWith": {
+            "name": "John Doe",
+            "title": "Grad Manager"
         },
-        dayOfTheWeek: "Wednesday"
+        "dayOfTheWeek": "Wednesday"
     },
     {
 
-        title: "The vision, the strategy",
-        description: "What we're solving, what we're building",
-        time: "13:00",
-        taskWith: {
-            name: "John Doe",
-            title: "Grad Manager"
+        "title": "The vision, the strategy",
+        "description": "What we're solving, what we're building",
+        "time": "13:00",
+        "taskWith": {
+            "name": "John Doe",
+            "title": "Grad Manager"
         },
-        dayOfTheWeek: "Thursday"
+        "dayOfTheWeek": "Thursday"
     },
     {
 
-        title: "Health and Safety measures",
-        description: "Learn how to proceed if there's a fire",
-        time: "15:00",
-        taskWith: {
-            name: "John Doe",
-            title: "Grad Manager"
+        "title": "Health and Safety measures",
+        "description": "Learn how to proceed if there's a fire",
+        "time": "15:00",
+        "taskWith": {
+            "name": "John Doe",
+            "title": "Grad Manager"
         },
-        dayOfTheWeek: "Friday"
+        "dayOfTheWeek": "Friday"
     },
     {
 
-        title: "Laptop set up",
-        description: "Install the apps you will need",
-        time: "10:00",
-        taskWith: {
-            name: "John Doe",
-            title: "Grad Manager"
+        "title": "Laptop set up",
+        "description": "Install the apps you will need",
+        "time": "10:00",
+        "taskWith": {
+            "name": "John Doe",
+            "title": "Grad Manager"
         },
-        dayOfTheWeek: "Monday"
+        "dayOfTheWeek": "Monday"
     },
 ];
 
@@ -98,18 +98,18 @@ const addSeedData = async (db) => {
         });
 
         console.log("Repopulating with test data...");
+        let defaultUserId;
 
         await seedUserData.map((user) => {
             db.collection("users").insertOne(user, (err, result) => {
                 if (err) throw (err);
+                db.collection("users").find({}).toArray((err, result) => {
+                    defaultUserId = result[0]["_id"];
+                });
                 return (result.ops[0]);
             });
         });
-
-        let defaultUserId;
-        db.collection("users").find({}).toArray((err, result) => {
-            defaultUserId = result[0]["_id"];
-        });
+        
 
         seed.map((task) => {
             db.collection("tasks").insertOne(task, (err, result) => {
@@ -118,9 +118,9 @@ const addSeedData = async (db) => {
                 let paulsTask = addUserTask(result.ops[0]["_id"]);
                 console.log(paulsTask);
                 let taskDay = result.ops[0]["dayOfTheWeek"];
-                console.log(taskDay);
+                // console.log(taskDay);
                 let newValues = { $push: { [`tasks.${taskDay}`]: paulsTask } };
-                console.log("updating user");
+                // console.log("updating user");
 
                 db.collection("users").updateOne({ _id: defaultUserId },
                     newValues,
@@ -128,7 +128,7 @@ const addSeedData = async (db) => {
                         if (err) throw (err);
 
                         db.collection("users").find({}).toArray((err, result) => {
-                            console.log(result[0]);
+                            // console.log(result[0]);
                         });
                         return result;
                     });

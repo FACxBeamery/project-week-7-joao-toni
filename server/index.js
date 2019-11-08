@@ -3,9 +3,11 @@ const router = require("./router.js");
 const {initDb, getDb} = require("./database/dbConnection");
 const { addSeedData } = require("./testData/seed.js");
 
+const bodyParser = require("./middleware/bodyParser");
 const app = express();
 const port = process.env.PORT || 4000;
 
+app.use(bodyParser);
 app.use(router);
 
 initDb()

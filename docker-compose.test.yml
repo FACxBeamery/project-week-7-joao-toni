@@ -1,0 +1,46 @@
+version: "3"
+
+services:
+    ##########################
+    ### SETUP DB CONTAINER
+    ##########################
+    db:
+        image: mongo
+        # ports:
+        #   - 27017:27017
+        restart: always
+    ##########################
+    ### SETUP SERVER CONTAINER
+    ##########################
+    server:
+        # Tell docker what file to build the server from
+        build:
+            context: ./server
+            dockerfile: Dockerfile-test
+        # The ports to expose
+        expose:
+            - 4000
+        # Environment variables
+        environment:
+            - MONGO_URI=mongodb://db:27017/db
+            - PORT=4000
+            - JWT_SECRET=secretsecret
+            - JWT_EXPIRY=30d
+            - DEBUG=worker:*
+            - MORGAN=combined
+            - NODE_ENV=test
+        # Port mapping
+        ports:
+            - 4000:4000
+        # Volumes to mount
+        volumes:
+            - ./server:/app/server
+        # Run command
+        command: tape ./database/test/db.test.js
+        # Connect to other containers
+        links:
+            - db
+        depends_on: 
+            - db
+
+

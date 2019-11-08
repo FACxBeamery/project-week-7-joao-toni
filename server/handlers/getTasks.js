@@ -2,7 +2,6 @@ const readTasks = require("../database/queries/readTasks");
 const getDB = require("../database/dbConnection.js").getDb;
 
 const getTasks = (req, res) => {
-    console.log("get tasks!!");
     const db = getDB();
 
     readTasks(db.collection("tasks"))

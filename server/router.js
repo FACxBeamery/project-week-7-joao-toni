@@ -15,7 +15,7 @@ const router = express();
 router.get("/tasks", getTasks);
 router.post("/tasks", taskValidator(true), createTask);
 router.get("/users", getUsers);
-router.post("/addUser", createUser);
+router.post("/users", createUser);
 router.get("/users/:id", getUserTasks);
 router.patch("/users/:id", toggleUserTask);
 

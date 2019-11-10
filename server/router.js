@@ -1,20 +1,19 @@
 const express = require("express");
 
-const getTasks = require("./handlers/getTasks.js");
-const createTask = require("./handlers/createTask.js");
+const getTasks = require("./handlers/tasks/getTasks.js");
+const createTask = require("./handlers/tasks/createTask.js");
 
-const toggleUserTask = require("./handlers/UsersCollection/toggleUserTask.js");
-const getUserTasks = require("./handlers/UsersCollection/getUserTasks");
-const createUser = require("./handlers/UsersCollection/createUser");
-const getUsers = require("./handlers/UsersCollection/getUsers.js");
+const toggleUserTask = require("./handlers/users/toggleUserTask.js");
+const getUserTasks = require("./handlers/users/getUserTasks");
+const createUser = require("./handlers/users/createUser");
+const getUsers = require("./handlers/users/getUsers.js");
 
 const taskValidator = require("./middleware/taskValidator");
-const bodyParser = require("./middleware/bodyParser");
 
 const router = express();
 
 router.get("/tasks", getTasks);
-router.post("/tasks", [taskValidator(true), bodyParser], createTask); 
+router.post("/tasks", taskValidator(true), createTask);
 router.get("/users", getUsers);
 router.post("/addUser", createUser);
 router.get("/users/:id", getUserTasks);

@@ -11,15 +11,18 @@ const UpNext = ({ tasksData }) => {
     const [employeeName, setEmployeeName] = useState(undefined);
 
     useEffect(() => {
-        getMostRecent()
-            .then(data => {
-                setNextTask(data);
-                setEmployeeName(data.taskHost);
-            })
-            .catch(err => {
+        async function getMostRecentTask(tasks) {
+            try {
+                let result = await getMostRecent(tasks);
+                setNextTask(result);
+                setEmployeeName(result.taskHost);
+            } catch (err) {
                 setNextTask(undefined);
                 setEmployeeName(undefined);
-            });
+            }
+        }
+
+        getMostRecentTask(tasksData);
     });
     return nextTask && employeeName ? (
         <div className={styles["upnext-wrapper"]}>

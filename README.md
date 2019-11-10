@@ -156,11 +156,9 @@ As a DEVELOPER I need to WRITE TESTS FOR MY SERVER so that I CAN BE SURE THAT IT
 
 In the project directory, you can run:
 
-### `docker-compose build`
-
-### `docker-compose up`
-
 ### `docker-compose -f docker-compose.yml up --build`
+
+### `docker-compose -f docker-compose.test.yml up --build`
 
 
 ### `npm start`

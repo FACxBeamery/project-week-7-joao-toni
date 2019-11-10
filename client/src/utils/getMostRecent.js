@@ -1,7 +1,6 @@
-import { tasksData } from "../dummyData/tasksData";
 import { getDayName } from "./getDayName";
 
-export const getMostRecent = () => {
+export const getMostRecent = tasksData => {
     return new Promise((resolve, reject) => {
         const now = new Date();
         const currentDayOfTheWeek = getDayName(now.getDay());

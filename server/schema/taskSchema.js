@@ -8,6 +8,7 @@ const taskSchema = Joi.object().keys({
     taskHost: Joi.object().keys({
         name: Joi.string().required(),
         title: Joi.string().required()
-    })
+    }),
+    dayOfTheWeek: Joi.string().required()
 });
 module.exports = taskSchema;

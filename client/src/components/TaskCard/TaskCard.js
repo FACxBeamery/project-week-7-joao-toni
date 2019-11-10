@@ -15,7 +15,7 @@ const TaskCard = ({
     title,
     description,
     time,
-    taskWith,
+    taskHost,
     progress,
     taskId,
     isFiltered = false
@@ -97,7 +97,7 @@ const TaskCard = ({
                 }`}
             >
                 <Badge type={cardTaskType} />
-                <ProfileArea {...taskWith} />
+                <ProfileArea {...taskHost} />
             </div>
         </div>
     );

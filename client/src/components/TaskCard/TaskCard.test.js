@@ -12,9 +12,9 @@ const tasksData = {
             title: "title 1",
             description: "meeting the important person",
             time: "12:00",
-            taskWith: {
+            taskHost: {
                 name: "John Doe",
-                position: "Grad Manager"
+                title: "Grad Manager"
             },
             progress: "inprogress"
         }
@@ -35,9 +35,9 @@ describe("Testing the TaskCard component", () => {
             title={"title 1"}
             description={"meeting the important person"}
             time={"12:00"}
-            taskWith={{
+            taskHost={{
                 name: "John Doe",
-                position: "Grad Manager"
+                title: "Grad Manager"
             }}
             progress={"inprogress"}
         />

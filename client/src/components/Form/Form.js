@@ -3,12 +3,19 @@ import FormField from "./FormField";
 import Button from "../Button/Button";
 import styles from "./Form.module.css";
 import SuccessMessage from "../SuccessMessage";
-import axios from 'axios';
+import axios from "axios";
 
 import { areAllObjPropsFalse } from "../../utils/areAllObjPropsFalse";
 
 const Form = () => {
-    const [inputs, setInputs] = useState({});
+    const [inputs, setInputs] = useState({
+        taskDescription: undefined,
+        taskWeekDay: undefined,
+        taskHostName: undefined,
+        taskHostTitle: undefined,
+        taskTime: undefined,
+        taskTitle: undefined
+    });
     const [errors, setErrors] = useState({
         taskDescription: undefined,
         taskWeekDay: undefined,
@@ -43,24 +50,21 @@ const Form = () => {
             e.preventDefault();
             let doesNotHaveErrors = areAllObjPropsFalse(errors);
             if (doesNotHaveErrors) {
-                
-                const newTaskData = {
-                    title: inputs.taskTitle,
-                    description: inputs.taskDescription,
-                    time: inputs.taskTime,
-                    taskWith: {
-                        name: inputs.taskHostName,
-                        title: inputs.taskHostTitle,
-                    },
-                    progress: "inprogress",
-                    dayOfTheWeek: inputs.taskWeekDay
-                }
                 try {
+                    const newTaskData = {
+                        title: inputs.taskTitle,
+                        dayOfTheWeek: inputs.taskWeekDay,
+                        description: inputs.taskDescription,
+                        time: inputs.taskTime,
+                        taskHost: {
+                            name: inputs.taskHostName,
+                            title: inputs.taskHostTitle
+                        }
+                    };
                     const response = await axios.post("/tasks", newTaskData);
                     setSubmitted(true);
-                } catch(err) {
+                } catch (err) {
                     console.log(err);
-                    
                 }
             }
         }

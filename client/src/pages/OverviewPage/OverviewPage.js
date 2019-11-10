@@ -10,25 +10,23 @@ import axios from "axios";
 import TaskOverviewList from "../../components/TaskOverviewList";
 
 const OverviewPage = ({ setView }) => {
-    const [tasksData, setTasksData] = useState({});
+    const [tasksData, setTasksData] = useState(undefined);
 
     useEffect(() => {
         // TODO api implementation
         async function getUsers() {
             let result = await axios.get("/users");
-            getTasks(result.data[0]._id)
-            
+            getTasks(result.data[0]._id);
         }
         async function getTasks(userId) {
             let result = await axios.get(`users/${userId}`);
             console.log(result);
             setTasksData(result.data);
-            
         }
         getUsers();
     }, [setTasksData]);
 
-    return (
+    return tasksData ? (
         <div>
             <nav>
                 <Button
@@ -51,6 +49,8 @@ const OverviewPage = ({ setView }) => {
                 />
             </main>
         </div>
+    ) : (
+        <h1>Loading Data...</h1>
     );
 };
 

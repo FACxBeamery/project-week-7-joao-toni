@@ -1,4 +1,4 @@
-const { seed } = require("../testData/seed");
+const seed = require("../testData/seed.json");
 
 const deleteAllTasks = (db) => db.collection("tasks").drop();
 

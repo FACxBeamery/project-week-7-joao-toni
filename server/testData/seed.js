@@ -1,72 +1,69 @@
+const { ObjectId, MongoError } = require("mongodb");
+
 const seed = [
     {
-        "title": "Beamery Product intro meeting",
-        "description": "Get to know more about the product",
-        "time": "09:00",
-        "taskWith": {
-            "name": "John Doe",
-            "title": "Grad Manager"
+        title: "Beamery Product intro meeting",
+        description: "Get to know more about the product",
+        time: "09:00",
+        taskHost: {
+            name: "John Doe",
+            title: "Grad Manager"
         },
-        "dayOfTheWeek": "Monday"
+        dayOfTheWeek: "Monday"
     },
     {
-
-        "title": "Meet the team",
-        "description": "Say hi to Engage",
-        "time": "11:00",
-        "taskWith": {
-            "name": "John Doe",
-            "title": "Grad Manager"
+        title: "Meet the team",
+        description: "Say hi to Engage",
+        time: "11:00",
+        taskHost: {
+            name: "John Doe",
+            title: "Grad Manager"
         },
-        "dayOfTheWeek": "Monday"
+        dayOfTheWeek: "Monday"
     },
     {
-
-        "title": "Employee Handbook Reading",
-        "description": "Learn about Beamery's policies and your perks",
-        "time": "09:00",
-        "taskWith": {
-            "name": "John Doe",
-            "title": "Grad Manager"
+        title: "Employee Handbook Reading",
+        description: "Learn about Beamery's policies and your perks",
+        time: "09:00",
+        taskHost: {
+            name: "John Doe",
+            title: "Grad Manager"
         },
-        "dayOfTheWeek": "Wednesday"
+        dayOfTheWeek: "Wednesday"
     },
     {
-
-        "title": "The vision, the strategy",
-        "description": "What we're solving, what we're building",
-        "time": "13:00",
-        "taskWith": {
-            "name": "John Doe",
-            "title": "Grad Manager"
+        title: "The vision, the strategy",
+        description: "What we're solving, what we're building",
+        time: "13:00",
+        taskHost: {
+            name: "John Doe",
+            title: "Grad Manager"
         },
-        "dayOfTheWeek": "Thursday"
+        dayOfTheWeek: "Thursday"
     },
     {
-
-        "title": "Health and Safety measures",
-        "description": "Learn how to proceed if there's a fire",
-        "time": "15:00",
-        "taskWith": {
-            "name": "John Doe",
-            "title": "Grad Manager"
+        title: "Health and Safety measures",
+        description: "Learn how to proceed if there's a fire",
+        time: "15:00",
+        taskHost: {
+            name: "John Doe",
+            title: "Grad Manager"
         },
-        "dayOfTheWeek": "Friday"
+        dayOfTheWeek: "Friday"
     },
     {
-
-        "title": "Laptop set up",
-        "description": "Install the apps you will need",
-        "time": "10:00",
-        "taskWith": {
-            "name": "John Doe",
-            "title": "Grad Manager"
+        title: "Laptop set up",
+        description: "Install the apps you will need",
+        time: "10:00",
+        taskHost: {
+            name: "John Doe",
+            title: "Grad Manager"
         },
-        "dayOfTheWeek": "Monday"
-    },
+        dayOfTheWeek: "Monday"
+    }
 ];
 
-let seedUserData = [
+let seedUsersData = [
     {
         person: {
             name: "Paul",
@@ -79,65 +76,85 @@ let seedUserData = [
             Thursday: [],
             Friday: []
         }
+    },
+    {
+        person: {
+            name: "Tim",
+            title: "Graduate"
+        },
+        tasks: {
+            Monday: [],
+            Tuesday: [],
+            Wednesday: [],
+            Thursday: [],
+            Friday: []
+        }
     }
 ];
 
-const addUserTask = (taskId) => ({
-    taskId, progress: "inprogress"
+const parseTaskForUser = taskId => ({
+    taskId,
+    progress: "inprogress"
 });
 
-const addSeedData = async (db) => {
+const addUserTask = async (db, taskToAdd) => {
     try {
-        db.collection("tasks").deleteMany({}, (err, delOK) => {
-            if (err) throw err;
-            if (delOK) console.log("Collection emptied");
-        });
-        db.collection("users").deleteMany({}, (err, delOK) => {
-            if (err) throw err;
-            if (delOK) console.log("Collection emptied");
-        });
+        return await db.collection("tasks").insertOne(taskToAdd);
+    } catch (err) {
+        if (err instanceof MongoError) {
+            const mongoErrorDuplicateEntry = err.code === 11000;
+            if (mongoErrorDuplicateEntry)
+                return {
+                    ops: [
+                        {
+                            ...err.keyValue,
+                            dayOfTheWeek: taskToAdd.dayOfTheWeek
+                        }
+                    ]
+                };
+        }
+        throw err;
+    }
+};
+
+const addSeedData = async db => {
+    try {
+        await db.collection("tasks").deleteMany({});
+        await db.collection("users").deleteMany({});
 
         console.log("Repopulating with test data...");
-        let defaultUserId;
+        await Promise.all(
+            seedUsersData.map(user => db.collection("users").insertOne(user))
+        );
 
-        await seedUserData.map((user) => {
-            db.collection("users").insertOne(user, (err, result) => {
-                if (err) throw (err);
-                db.collection("users").find({}).toArray((err, result) => {
-                    defaultUserId = result[0]["_id"];
-                });
-                return (result.ops[0]);
-            });
+        const allUsersResults = await db
+            .collection("users")
+            .find({})
+            .toArray();
+        let allUsersId = allUsersResults.map(user => user["_id"]);
+        allUsersId = await Promise.all(allUsersId);
+        console.log("all users have resolved", allUsersId);
+
+        allUsersId.forEach(async user => {
+            await Promise.all(
+                seed.map(async task => {
+                    const insertTaskResult = await addUserTask(db, task);
+
+                    let parsedTask = parseTaskForUser(
+                        insertTaskResult.ops[0]["_id"]
+                    );
+                    let taskDay = insertTaskResult.ops[0]["dayOfTheWeek"];
+                    let newValues = {
+                        $push: { [`tasks.${taskDay}`]: parsedTask }
+                    };
+
+                    return db
+                        .collection("users")
+                        .updateOne({ _id: new ObjectId(user) }, newValues);
+                })
+            );
+            console.log("Finished adding all tasks for user", user);
         });
-        
-
-        seed.map((task) => {
-            db.collection("tasks").insertOne(task, (err, result) => {
-                if (err) throw (err);
-
-                let paulsTask = addUserTask(result.ops[0]["_id"]);
-                console.log(paulsTask);
-                let taskDay = result.ops[0]["dayOfTheWeek"];
-                // console.log(taskDay);
-                let newValues = { $push: { [`tasks.${taskDay}`]: paulsTask } };
-                // console.log("updating user");
-
-                db.collection("users").updateOne({ _id: defaultUserId },
-                    newValues,
-                    (err, result) => {
-                        if (err) throw (err);
-
-                        db.collection("users").find({}).toArray((err, result) => {
-                            // console.log(result[0]);
-                        });
-                        return result;
-                    });
-
-                return (result.ops[0]);
-            });
-        });
-
-
     } catch (err) {
         console.error(err);
     }

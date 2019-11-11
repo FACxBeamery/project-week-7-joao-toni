@@ -5,9 +5,9 @@ const tasksData = {
             title: "Intro Task",
             description: "Meet the team!",
             time: "12:00",
-            taskWith: {
+            taskHost: {
                 name: "John Doe",
-                position: "Grad Manager"
+                title: "Grad Manager"
             },
             progress: "inprogress"
         },
@@ -16,9 +16,9 @@ const tasksData = {
             title: "Meet Your Laptop!",
             description: "Unbox yo goodies",
             time: "17:00",
-            taskWith: {
+            taskHost: {
                 name: "Grads",
-                position: "Grad Team"
+                title: "Grad Team"
             },
             progress: "inprogress"
         }
@@ -29,9 +29,9 @@ const tasksData = {
             title: "Intro Task",
             description: "Meet the team!",
             time: "12:00",
-            taskWith: {
+            taskHost: {
                 name: "John Doe",
-                position: "Grad Manager"
+                title: "Grad Manager"
             },
             progress: "complete"
         }
@@ -42,9 +42,9 @@ const tasksData = {
             title: "Beamery Product intro meeting",
             description: "Meet the product!",
             time: "12:00",
-            taskWith: {
+            taskHost: {
                 name: "John Doe",
-                position: "Grad Manager"
+                title: "Grad Manager"
             },
             progress: "inprogress"
         }
@@ -56,9 +56,9 @@ const tasksData = {
             title: "Beamery Product intro meeting",
             description: "Meet the product!",
             time: "09:00",
-            taskWith: {
+            taskHost: {
                 name: "John Doe",
-                position: "Grad Manager"
+                title: "Grad Manager"
             },
             progress: "inprogress"
         },
@@ -67,9 +67,9 @@ const tasksData = {
             title: "Beamery Product intro meeting",
             description: "Meet the product!",
             time: "11:00",
-            taskWith: {
+            taskHost: {
                 name: "John Doe",
-                position: "Grad Manager"
+                title: "Grad Manager"
             },
             progress: "inprogress"
         },
@@ -78,9 +78,9 @@ const tasksData = {
             title: "Beamery Product intro meeting",
             description: "Meet the product!",
             time: "12:00",
-            taskWith: {
+            taskHost: {
                 name: "John Doe",
-                position: "Grad Manager"
+                title: "Grad Manager"
             },
             progress: "inprogress"
         }

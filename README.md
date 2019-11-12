@@ -150,7 +150,9 @@ As a DEVELOPER I need to WRITE TESTS FOR MY SERVER so that I CAN BE SURE THAT IT
 - Feature: Admin can manage each task, assign it to a specific user, or reverse the assignment.
 
 ## After the demo...
-> ...
+we weren't able to fulfil the the following user story: `As a DEVELOPER I need to WRITE TESTS FOR MY SERVER so that I CAN BE SURE THAT IT WORKS AS EXPECTED `
+* [ ] Tests are written for each endpoint using `Supertest`
+* [ ] Edge cases are considered \(e.g. show that 404, 500 errors are produced as appropriate\)
 
 ## Available Scripts
 

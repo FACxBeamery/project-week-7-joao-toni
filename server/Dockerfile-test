@@ -3,8 +3,9 @@
 # Install node image in container
 FROM node
 
-# Install tape for hot reloading
-RUN npm install -g tape
+# Install jest and supertest for hot reloading
+RUN npm install supertest -g
+RUN npm install mocha -g
 
 # Create and set the working directory
 RUN mkdir -p /app/server

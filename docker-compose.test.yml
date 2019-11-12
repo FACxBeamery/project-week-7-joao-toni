@@ -36,7 +36,7 @@ services:
         volumes:
             - ./server:/app/server
         # Run command
-        command: tape ./database/test/db.test.js
+        command: mocha "./handlers/**/*.test.js"
         # Connect to other containers
         links:
             - db
